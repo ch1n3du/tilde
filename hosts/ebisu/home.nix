@@ -32,6 +32,7 @@
     pkgs.slack
     pkgs.vscodium
     pkgs.vlc
+    pkgs.git-credential-manager
 
     pkgs.zsh
     pkgs.kitty
