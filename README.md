@@ -6,3 +6,4 @@
 - [`modules`](./modules/) — nix modules used by configurations
     + [`modules/home-manager`](./modules/home-manager/) — home-manager modules
     + [`modules/nixos`](./modules/nixos/) — NixOS modules
+- [`configs`](./configs/) — dedicated application-specific config files

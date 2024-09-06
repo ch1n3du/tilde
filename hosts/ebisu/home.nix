@@ -34,9 +34,8 @@
     pkgs.vlc
     pkgs.git-credential-manager
 
-    pkgs.zsh
     pkgs.kitty
-    pkgs.wezterm
+    pkgs.neofetch
 
     # Fonts
     pkgs.inter
@@ -58,7 +57,6 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
-
   };
 
   # Home Manager can also manage your environment variables through
@@ -83,6 +81,37 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.kitty = {
+    enable = true;
+    programs.kitty.shellIntegration.enableZshIntegration = true;
+    theme = "Gruvbox Material Dark Hard";
+    font.size = 8;
+    font.name
+  };
+
+  # Configure zsh
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+  
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ 
+        "git"
+        "z"
+        # "zsh-autosuggestions"
+      ];
+      # theme = "robbyrussell";
+    };
+
+    shellAliases = {
+      ll = "ls -l";
+      rebuild-system = "sudo nixos-rebuild switch";
+    };
+  };
 
   # Enable Git
   programs.git = {
@@ -126,27 +155,4 @@
     };  
   };
 
-  # Configure zsh
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-  
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ 
-        "git"
-        "thefuck"
-        "z"
-        # "zsh-autosuggestions"
-      ];
-      # theme = "robbyrussell";
-    };
-
-    shellAliases = {
-      ll = "ls -l";
-      rebuild-system = "sudo nixos-rebuild switch";
-    };
-  };
 }

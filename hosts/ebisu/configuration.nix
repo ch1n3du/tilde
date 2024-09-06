@@ -95,12 +95,13 @@
     isNormalUser = true;
     description = "Daniel Chinedu Onyesoh";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
       # zotero_7
       # obsidian
       # thunderbird
       # telegram-desktop
-      # signal-desktop
+      signal-desktop
       # slack
       # vscodium
       # vlc
@@ -112,6 +113,7 @@
 
   # Enable firefox.
   programs.firefox.enable = true;
+  programs.zsh.enable = true;
 
   # Setup home-manager
   home-manager = {
