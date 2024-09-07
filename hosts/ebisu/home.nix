@@ -90,7 +90,7 @@
     shellIntegration.enableZshIntegration = true;
     theme = "Gruvbox Material Dark Hard";
     font.size = 12;
-    font.name = "FiraCode Nerd Font";
+    font.name = "MonaspiceNe Nerd Font";
 
     settings = {
       background_opacity = "0.8";
