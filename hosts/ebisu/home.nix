@@ -33,6 +33,8 @@
     pkgs.vscodium
     pkgs.vlc
     pkgs.git-credential-manager
+    pkgs.appimage-run
+  
 
     pkgs.kitty
     pkgs.neofetch

@@ -122,6 +122,7 @@
   # Setup home-manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
     users = {
       "ch1n3du" = import ./home.nix;
     };
