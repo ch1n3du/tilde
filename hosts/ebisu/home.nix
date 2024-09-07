@@ -120,6 +120,7 @@
     shellAliases = {
       ll = "ls -l";
       rebuild-system = "sudo nixos-rebuild switch";
+      mochi =  "appimage-run ~/Applications/Mochi-1.17.10.AppImage";
     };
   };
 
