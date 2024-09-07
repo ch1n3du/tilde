@@ -17,13 +17,17 @@
   main-user.userName = "ch1n3du2";
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.efiSupport = true;
+  boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "ch1n3du"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -93,7 +97,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ch1n3du = {
     isNormalUser = true;
-    description = "Daniel Chinedu Onyesoh";
+    description = "ch1n3du";
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [

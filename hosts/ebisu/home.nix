@@ -36,11 +36,13 @@
 
     pkgs.kitty
     pkgs.neofetch
+    pkgs.bat
+    pkgs.gpustat
 
     # Fonts
     pkgs.inter
     (pkgs.nerdfonts.override {
-        fonts = ["CodeNewRoman" "FiraCode"];
+        fonts = ["CodeNewRoman" "FiraCode" "Monaspace"];
     })
   ];
 
@@ -57,6 +59,7 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+    ".config/VSCodium/User/settings.json".source = ../../configs/vscode/settings.json;
   };
 
   # Home Manager can also manage your environment variables through
@@ -84,10 +87,15 @@
 
   programs.kitty = {
     enable = true;
-    programs.kitty.shellIntegration.enableZshIntegration = true;
+    shellIntegration.enableZshIntegration = true;
     theme = "Gruvbox Material Dark Hard";
-    font.size = 8;
-    font.name
+    font.size = 12;
+    font.name = "FiraCode Nerd Font";
+
+    settings = {
+      background_opacity = "0.8";
+      disable_ligatures = "never"; # Enable font ligatures
+    };
   };
 
   # Configure zsh
