@@ -6,15 +6,15 @@
 
 {
   imports =
-    [ 
+    [
       ./hardware-configuration.nix   # Include the results of the hardware scan.
       inputs.home-manager.nixosModules.default
       ../../modules/nixos/main-user.nix
     ];
 
   # Test 'main-user' options
-  main-user.enable = true;
-  main-user.userName = "ch1n3du2";
+  # main-user.enable = true;
+  # main-user.userName = "ch1n3du2";
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -27,7 +27,7 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
-  networking.hostName = "ch1n3du"; # Define your hostname.
+  networking.hostName = "ebisu.nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
