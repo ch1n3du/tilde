@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # mixrank.url = "path:/home/ch1n3du/Code/mixrank";
+    mixrank.url = "path:/home/ch1n3du/Code/mixrank";
     # mixrank.url = "git+ssh://git@gitlab.com/mixrank/mixrank";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -11,8 +11,8 @@
     };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
-  # outputs = { self, mixrank, nixpkgs, ... }@inputs:
+  # outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, mixrank, nixpkgs, ... }@inputs:
   let 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -25,7 +25,7 @@
         modules = [
           ./hosts/ebisu/configuration.nix
           inputs.home-manager.nixosModules.default
-          # mixrank.nixosModules.dev-machine
+          mixrank.nixosModules.dev-machine
         ];
       };
     };

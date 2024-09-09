@@ -34,6 +34,7 @@
     pkgs.vlc
     pkgs.git-credential-manager
     pkgs.appimage-run
+    pkgs.bitwarden-desktop
   
 
     pkgs.kitty
