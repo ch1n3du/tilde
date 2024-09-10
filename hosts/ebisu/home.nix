@@ -124,7 +124,8 @@
     shellAliases = {
       ls = "z";
       ll = "z -l";
-      rebuild-system = "sudo nixos-rebuild switch";
+      rebuild-system-test = "sudo nixos-rebuild test ~/Code/tilde#default";
+      rebuild-system-switch = "sudo nixos-rebuild switch ~/Code/tilde#default";
       mochi =  "appimage-run ~/Applications/Mochi-1.17.10.AppImage";
     };
   };
