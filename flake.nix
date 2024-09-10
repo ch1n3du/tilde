@@ -12,8 +12,8 @@
     };
   };
 
-  # outputs = { self, nixpkgs, ... }@inputs:
-  outputs = { self, mixrank, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
+  # outputs = { self, mixrank, nixpkgs, ... }@inputs:
   let 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -26,7 +26,7 @@
         modules = [
           ./hosts/ebisu/configuration.nix
           inputs.home-manager.nixosModules.default
-          mixrank.nixosModules.dev-machine
+          # mixrank.nixosModules.dev-machine
         ];
       };
     };
