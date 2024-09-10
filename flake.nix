@@ -25,7 +25,7 @@
         modules = [
           ./hosts/ebisu/configuration.nix
           inputs.home-manager.nixosModules.default
-          mixrank.nixosModules.dev-machine
+          # mixrank.nixosModules.dev-machine
         ];
       };
     };
