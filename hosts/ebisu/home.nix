@@ -38,6 +38,8 @@
     pkgs.gearlever
     pkgs.zed-editor
     pkgs.todoist-electron
+    pkgs.protonvpn-gui
+    mullvad-vpn
 
 
     pkgs.kitty
