@@ -38,7 +38,7 @@
     pkgs.gearlever
     pkgs.zed-editor
     pkgs.todoist-electron
-  
+
 
     pkgs.kitty
     pkgs.neofetch
@@ -110,10 +110,10 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-  
+
     oh-my-zsh = {
       enable = true;
-      plugins = [ 
+      plugins = [
         "git"
         "z"
         # "zsh-autosuggestions"
@@ -122,7 +122,8 @@
     };
 
     shellAliases = {
-      ll = "ls -l";
+      ls = "z";
+      ll = "z -l";
       rebuild-system = "sudo nixos-rebuild switch";
       mochi =  "appimage-run ~/Applications/Mochi-1.17.10.AppImage";
     };
@@ -167,7 +168,7 @@
         show_always = true;
         format = "[$user](bold #c09bf6)@";
       };
-    };  
+    };
   };
 
 }
