@@ -125,8 +125,6 @@
       cd = "z";
       cdl = "z -l";
       ll = "ls -l";
-      rebuild-system-test = "sudo nixos-rebuild test ~/Code/tilde#default";
-      rebuild-system-switch = "sudo nixos-rebuild switch ~/Code/tilde#default";
       mochi =  "appimage-run ~/Applications/Mochi-1.17.10.AppImage";
     };
   };
