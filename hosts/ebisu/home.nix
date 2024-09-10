@@ -37,11 +37,13 @@
     pkgs.bitwarden-desktop
     pkgs.gearlever
     pkgs.zed-editor
+    pkgs.todoist-electron
   
 
     pkgs.kitty
     pkgs.neofetch
     pkgs.bat
+    pkgs.zoxide
     pkgs.gpustat
 
     # Fonts

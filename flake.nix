@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
     mixrank.url = "path:/home/ch1n3du/Code/mixrank";
     # mixrank.url = "git+ssh://git@gitlab.com/mixrank/mixrank";
     home-manager = {
