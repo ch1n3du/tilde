@@ -36,15 +36,20 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Disable NetworkManager's internal DNS resolution
+  networking.networkmanager.dns = "none";
+
+  # These options are unnecessary when managing DNS ourselves
+  networking.useDHCP = false;
+  networking.dhcpcd.enable = false;
+
   # Use Cloudflare for DNS resolution
-  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
-  services.resolved = {
-    enable = true;
-    dnssec = "true";
-    domains = [ "~." ];
-    fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
-    dnsovertls = "true";
-  };
+  networking.nameservers = [
+    "1.1.1.1"
+    "1.0.0.1"
+    "8.8.8.8"
+    "8.8.4.4"
+  ];
 
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
