@@ -12,12 +12,11 @@
       ../../modules/nixos/main-user.nix
     ];
 
-  # Test 'main-user' options
+  # Test 'main-user' tutorial module options
   # main-user.enable = true;
   # main-user.userName = "ch1n3du2";
 
-  # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
+  # Enable GRUB booting
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
@@ -36,6 +35,16 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  # Use Cloudflare for DNS resolution
+  networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  services.resolved = {
+    enable = true;
+    dnssec = "true";
+    domains = [ "~." ];
+    fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+    dnsovertls = "true";
+  };
 
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
