@@ -39,7 +39,7 @@
     pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.protonvpn-gui
-    mullvad-vpn
+    pkgs.mullvad-vpn
 
 
     pkgs.kitty
@@ -144,6 +144,12 @@
     };
     extraConfig = {
       init.defaultBranch = "main";
+      pull.rebase = true;
+      url = {
+        "git@github.com" = {
+          insteadOf = "https://github.com/";
+        };
+      };
     };
   };
 
