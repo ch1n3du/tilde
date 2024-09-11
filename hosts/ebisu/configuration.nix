@@ -29,6 +29,12 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
+  # Add ch1n3du as a trusted user
+  nix.settings.trusted-users = [
+    "root"
+    "ch1n3du"
+  ];
+
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
