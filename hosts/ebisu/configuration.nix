@@ -10,6 +10,7 @@
         ./hardware-configuration.nix   # Include the results of the hardware scan.
         inputs.home-manager.nixosModules.default
         ../../modules/nixos/main-user.nix
+        ../../modules/nixos/s3nixcache-mixrank.nix
         ];
 
     # Test 'main-user' tutorial module options
@@ -32,10 +33,6 @@
     nix.settings.trusted-users = [
     "root"
     ];
-
-    # # Enable support for mixrank substituters
-    # nix.settings.trusted-substituters = [
-    # ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
