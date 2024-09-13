@@ -1,39 +1,41 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
+    # Edit this configuration file to define what should be installed on
+    # your system.  Help is available in the configuration.nix(5) man page
+    # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+    { config, pkgs, inputs, ... }:
 
-{
-  imports =
-    [
-      ./hardware-configuration.nix   # Include the results of the hardware scan.
-      inputs.home-manager.nixosModules.default
-      ../../modules/nixos/main-user.nix
+    {
+    imports =
+        [
+        ./hardware-configuration.nix   # Include the results of the hardware scan.
+        inputs.home-manager.nixosModules.default
+        ../../modules/nixos/main-user.nix
+        ];
+
+    # Test 'main-user' tutorial module options
+    # main-user.enable = true;
+    # main-user.userName = "ch1n3du2";
+
+    # Use system-d boot
+    boot.loader.systemd-boot.enable = true;
+
+    # Enable GRUB booting
+    # boot.loader.grub.enable = true;
+    # boot.loader.grub.device = "nodev";
+    # boot.loader.grub.efiSupport = true;
+    # boot.loader.grub.useOSProber = true;
+    # boot.loader.efi.canTouchEfiVariables = true;
+
+    # Enable flakes
+    nix.settings.experimental-features = [ "nix-command" "flakes"];
+
+    nix.settings.trusted-users = [
+    "root"
     ];
 
-  # Test 'main-user' tutorial module options
-  # main-user.enable = true;
-  # main-user.userName = "ch1n3du2";
-
-  # Use system-d boot
-  boot.loader.systemd-boot.enable = true;
-
-  # Enable GRUB booting
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "nodev";
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.useOSProber = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
-
-  # Add ch1n3du as a trusted user
-  nix.settings.trusted-users = [
-    "root"
-    "ch1n3du"
-  ];
+    # # Enable support for mixrank substituters
+    # nix.settings.trusted-substituters = [
+    # ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
