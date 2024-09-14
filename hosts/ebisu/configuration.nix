@@ -123,15 +123,9 @@
     extraGroups = [ "networkmanager" "wheel" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
-      # zotero_7
-      # obsidian
-      # thunderbird
-      # telegram-desktop
       signal-desktop
-      # slack
-      # vscodium
-      # vlc
-
+      clang
+      rustup
 
       # Apps go here
     ];
