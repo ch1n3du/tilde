@@ -126,7 +126,7 @@
     # Configure tmux
     programs.tmux = {
       enable = true;
-      shell = "${pkgs.fish}/bin/zsh";
+      # shell = "${pkgs.fish}/bin/zsh";
       terminal = "tmux-256color";
       historyLimit = 100000;
 
