@@ -123,35 +123,10 @@
       # theme = "robbyrussell";
     };
 
-    # Configure tmux
-    programs.tmux = {
-      enable = true;
-      # shell = "${pkgs.fish}/bin/zsh";
-      terminal = "tmux-256color";
-      historyLimit = 100000;
-
-      plugins = with pkgs; [
-        tmuxPlugins.better-mouse-mode
-      ];
-
-      extraConfig = ''
-      '';
-    };
-
     shellAliases = {
-      ll = "l -l";
-
-      # zoxide aliases
       cd = "z";
       cdl = "z -l";
-
-      # tmux aliases
-      t = "tmux";
-      tattach = "tmux attach -t";
-      tls = "tmux ls";
-      tnew = "tmux new -t";
-
-      # Mochi helper
+      ll = "ls -l";
       mochi =  "appimage-run ~/Applications/Mochi-1.17.10.AppImage";
     };
   };
