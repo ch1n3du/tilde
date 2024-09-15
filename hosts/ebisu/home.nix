@@ -32,14 +32,12 @@
     pkgs.slack
     pkgs.vscodium
     pkgs.vlc
-    pkgs.git-credential-manager
     pkgs.appimage-run
     pkgs.bitwarden-desktop
     pkgs.gearlever
     pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.protonvpn-gui
-    pkgs.mullvad-vpn
 
 
     pkgs.kitty
@@ -47,6 +45,7 @@
     pkgs.bat
     pkgs.zoxide
     pkgs.gpustat
+    pkgs.tmux
 
     # Fonts
     pkgs.inter
