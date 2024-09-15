@@ -46,6 +46,7 @@
     pkgs.zoxide
     pkgs.gpustat
     pkgs.tmux
+    pkgs.zsh
 
     # Fonts
     pkgs.inter
