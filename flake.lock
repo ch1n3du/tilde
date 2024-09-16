@@ -26,14 +26,17 @@
         "nixpkgs_old": "nixpkgs_old"
       },
       "locked": {
-        "lastModified": 0,
-        "narHash": "sha256-xMtHKzAADcRkZBuGPJbiSnQTJaopPXsQnebZWh8vt5A=",
-        "path": "/home/ch1n3du/Code/mixrank",
-        "type": "path"
+        "lastModified": 1725634668,
+        "narHash": "sha256-Vm9b6uhxqGt6XJZRR9b0j2F3PqAhheSy+EhcsshPK14=",
+        "ref": "refs/heads/master",
+        "rev": "b934c0ffdd5626c81a504f3eab8f3e076e93541d",
+        "revCount": 65351,
+        "type": "git",
+        "url": "ssh://git@gitlab.com/mixrank/mixrank"
       },
       "original": {
-        "path": "/home/ch1n3du/Code/mixrank",
-        "type": "path"
+        "type": "git",
+        "url": "ssh://git@gitlab.com/mixrank/mixrank"
       }
     },
     "nixpkgs": {
