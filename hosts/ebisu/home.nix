@@ -38,6 +38,7 @@
     pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.protonvpn-gui
+    pkgs.discord
 
 
     pkgs.kitty
