@@ -75,6 +75,10 @@
     #   org.gradle.console=verbose
     #   org.gradle.daemon.idletimeout=3600000
     # '';
+
+    ".gitignore_global".text = ''
+      .jj/
+    '';
   };
 
   # Home Manager can also manage your environment variables through
