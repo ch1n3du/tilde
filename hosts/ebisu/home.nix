@@ -41,12 +41,14 @@
     pkgs.discord
     pkgs.onlyoffice-bin
     pkgs.bottles
-    pkgs.freecad
+    # pkgs.freecad
 
 
     pkgs.kitty
     pkgs.neofetch
     pkgs.bat
+    pkgs.htop
+    pkgs.lazygit
     pkgs.zoxide
     pkgs.gpustat
     pkgs.tmux
