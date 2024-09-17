@@ -53,6 +53,7 @@
     pkgs.gpustat
     pkgs.tmux
     pkgs.zsh
+    pkgs.jujutsu
 
     # Fonts
     pkgs.inter
