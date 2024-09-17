@@ -26,11 +26,11 @@
         "nixpkgs_old": "nixpkgs_old"
       },
       "locked": {
-        "lastModified": 1725634668,
-        "narHash": "sha256-Vm9b6uhxqGt6XJZRR9b0j2F3PqAhheSy+EhcsshPK14=",
+        "lastModified": 1726534339,
+        "narHash": "sha256-KKRrocvXhEvc+EzYr+YGnjwm1tkAYmWg1g1xwdqb3xk=",
         "ref": "refs/heads/master",
-        "rev": "b934c0ffdd5626c81a504f3eab8f3e076e93541d",
-        "revCount": 65351,
+        "rev": "f9b40ef534cbae496b89849435ed231608ea9645",
+        "revCount": 65618,
         "type": "git",
         "url": "ssh://git@gitlab.com/mixrank/mixrank"
       },
@@ -41,11 +41,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1726243404,
-        "narHash": "sha256-sjiGsMh+1cWXb53Tecsm4skyFNag33GPbVgCdfj3n9I=",
+        "lastModified": 1726463316,
+        "narHash": "sha256-gI9kkaH0ZjakJOKrdjaI/VbaMEo9qBbSUl93DnU7f4c=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "345c263f2f53a3710abe117f28a5cb86d0ba4059",
+        "rev": "99dc8785f6a0adac95f5e2ab05cc2e1bf666d172",
         "type": "github"
       },
       "original": {

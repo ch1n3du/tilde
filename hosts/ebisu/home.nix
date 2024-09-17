@@ -39,6 +39,8 @@
     pkgs.todoist-electron
     pkgs.protonvpn-gui
     pkgs.discord
+    pkgs.onlyoffice-bin
+    pkgs.bottles
 
 
     pkgs.kitty
