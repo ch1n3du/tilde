@@ -30,7 +30,7 @@
     pkgs.telegram-desktop
     pkgs.signal-desktop
     pkgs.slack
-    # pkgs.vscodium
+    pkgs.vscodium
     pkgs.vlc
     pkgs.appimage-run
     pkgs.bitwarden-desktop
@@ -189,47 +189,6 @@
         format = "[$user](bold #c09bf6)@";
       };
     };
-  };
-
-  # Enable VSCodium
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions; [
-      # Quality-of-life improvements
-      usernamehw.errorlens
-      christian-kohler.path-intellisense
-      aaron-bond.better-comments
-      oderwat.indent-rainbow
-      vscodevim.vim
-      jdinhlife.gruvbox
-
-      # Aesthetics
-      # miguelsolorio.fluent-icons
-      PKief.material-icon-theme
-
-      # Git
-      donjayamanne.git-extension-pack
-      waderyan.gitblame
-
-      # SSH
-      ms-vscode-remote.remote-ssh
-
-      # Python
-      ms-python.python
-      ms-python.vscode-pylance
-      ms-python.debugpy
-      cstrap.python-snippets
-
-      # Rust
-      rust-lang.rust-analyzer
-
-      # Nix
-      pinage404.nix-extension-pack
-
-      # Markdown
-      yzhang.markdown-all-in-one
-    ];
   };
 
 }
