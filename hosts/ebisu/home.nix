@@ -205,7 +205,7 @@
       jdinhlife.gruvbox
 
       # Aesthetics
-      miguelsolorio.fluent-icons
+      # miguelsolorio.fluent-icons
       PKief.material-icon-theme
 
       # Git
