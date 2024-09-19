@@ -54,6 +54,7 @@
     pkgs.tmux
     pkgs.zsh
     pkgs.jujutsu
+    pkgs.direnv
     pkgs.nix-direnv
 
     # Fonts
