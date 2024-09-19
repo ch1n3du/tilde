@@ -41,7 +41,7 @@
     pkgs.discord
     pkgs.onlyoffice-bin
     pkgs.bottles
-    # pkgs.freecad
+    pkgs.freecad
 
 
     pkgs.kitty
@@ -54,6 +54,7 @@
     pkgs.tmux
     pkgs.zsh
     pkgs.jujutsu
+    pkgs.nix-direnv
 
     # Fonts
     pkgs.inter
