@@ -195,7 +195,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
-    extensions = with pkgs.vscode-extensions [
+    extensions = with pkgs.vscode-extensions; [
       # Quality-of-life improvements
       usernamehw.errorlens
       christian-kohler.path-intellisense
