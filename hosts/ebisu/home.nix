@@ -41,6 +41,7 @@
     pkgs.discord
     pkgs.onlyoffice-bin
     pkgs.bottles
+    pkgs.anki-bin
 
 
     pkgs.kitty

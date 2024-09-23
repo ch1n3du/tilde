@@ -169,7 +169,7 @@
   services.postgresql = {
   enable = true;
   package = pkgs.postgresql_16;
-  dataDir = "/data/postgresql";
+  # dataDir = "/data/postgresql";
 };
 
   # Enable the OpenSSH daemon.
