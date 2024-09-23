@@ -168,7 +168,7 @@
 # Enable PostgreSQL
   services.postgresql = {
   enable = true;
-  package = pkgs.postgresql_11;
+  package = pkgs.postgresql_16;
   dataDir = "/data/postgresql";
 };
 
