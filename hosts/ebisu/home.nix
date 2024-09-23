@@ -57,6 +57,7 @@
     pkgs.direnv
     pkgs.nix-direnv
     pkgs.glow
+    pkgs.make
 
     # Fonts
     pkgs.inter
