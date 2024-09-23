@@ -57,7 +57,7 @@
     pkgs.direnv
     pkgs.nix-direnv
     pkgs.glow
-    pkgs.make
+    pkgs.gnumake
 
     # Fonts
     pkgs.inter
