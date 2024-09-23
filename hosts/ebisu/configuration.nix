@@ -165,6 +165,13 @@
 
   # List services that you want to enable:
 
+# Enable PostgreSQL
+  services.postgresql = {
+  enable = true;
+  package = pkgs.postgresql_11;
+  dataDir = "/data/postgresql";
+}
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
