@@ -55,6 +55,7 @@
     pkgs.jujutsu
     pkgs.direnv
     pkgs.nix-direnv
+    pkgs.glow
 
     # Fonts
     pkgs.inter
