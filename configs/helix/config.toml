@@ -35,17 +35,13 @@ left = ["mode", "spinner", "version-control", "file-name"]
 "A-." = "goto_next_buffer"
 "A-w" = ":buffer-close"
 "A-/" = "repeat_last_motion"
-
-[keys.normal]
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
+C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 
 [keys.select]
 A-x = "extend_to_line_bounds"
 X = ["extend_line_up", "extend_to_line_bounds"]
-
-[keys.normal]
-C-s = ":w" # Maps Ctrl-s to the typable command :w which is an alias for :write (save file)
 
 [keys.insert]
 j = { k = "normal_mode" } # Maps `jk` to exit insert mode
