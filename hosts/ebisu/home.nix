@@ -116,7 +116,7 @@
     font.name = "MonaspiceNe Nerd Font";
 
     settings = {
-      background_opacity = "1.0";
+      background_opacity = "0.9";
       disable_ligatures = "never"; # Enable font ligatures
     };
   };
