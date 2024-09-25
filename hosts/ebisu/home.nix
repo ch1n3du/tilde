@@ -83,6 +83,8 @@
     ".gitignore_global".text = ''
       .jj/
     '';
+
+    ".config/helix/config.toml".source = ../../configs/helix/config.toml;
   };
 
   # Home Manager can also manage your environment variables through
