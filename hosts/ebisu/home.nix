@@ -111,12 +111,12 @@
   programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
-    theme = "Gruvbox Material Dark Hard";
+    themeFile = "GruvboxMaterialDarkHard";
     font.size = 12;
     font.name = "MonaspiceNe Nerd Font";
 
     settings = {
-      background_opacity = "0.8";
+      background_opacity = "1.0";
       disable_ligatures = "never"; # Enable font ligatures
     };
   };

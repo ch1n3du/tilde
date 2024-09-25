@@ -7,10 +7,11 @@
     {
     imports =
         [
-        ./hardware-configuration.nix   # Include the results of the hardware scan.
-        inputs.home-manager.nixosModules.default
-        ../../modules/nixos/main-user.nix
-        ../../modules/nixos/s3nixcache-mixrank.nix
+          ./hardware-configuration.nix   # Include the results of the hardware scan.
+          inputs.home-manager.nixosModules.default
+          ../../modules/nixos/main-user.nix
+          ../../modules/nixos/s3nixcache-mixrank.nix
+          # inputs.nixvim.homeManagerModules.nixvim
         ];
 
     # Test 'main-user' tutorial module options
