@@ -86,8 +86,6 @@
     '';
 
     ".config/helix/config.toml".source = ../../configs/helix/config.toml;
-
-    ".tmux.conf".source = ../../configs/tmux/.tmux.conf;
   };
 
   # Home Manager can also manage your environment variables through
@@ -177,6 +175,22 @@
   programs.atuin = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+    terminal = "tmux-256color";
+    historyLimit = 100000;
+
+    plugins = with pkgs;
+      [
+        tmuxPlugins.better-mouse-mode
+        tmuxPlugins.gruvbox
+        tmuxPlugins.yank
+        tmuxPlugins.vim-tmux-navigator
+      ];
+    extraConfig = ''
+    '';
   };
 
   # Enable starship
