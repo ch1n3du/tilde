@@ -86,6 +86,8 @@
     '';
 
     ".config/helix/config.toml".source = ../../configs/helix/config.toml;
+
+    ".tmux.conf".source = ../../configs/tmux/.tmux.conf;
   };
 
   # Home Manager can also manage your environment variables through
