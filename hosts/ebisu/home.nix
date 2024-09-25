@@ -190,6 +190,11 @@
         tmuxPlugins.vim-tmux-navigator
       ];
     extraConfig = ''
+      # split panes using | and -
+      bind | split-window -h
+      bind - split-window -v
+      unbind '"'
+      unbind %
     '';
   };
 
