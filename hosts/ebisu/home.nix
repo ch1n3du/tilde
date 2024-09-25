@@ -42,6 +42,7 @@
     pkgs.onlyoffice-bin
     pkgs.bottles
     pkgs.anki-bin
+    pkgs.newsflash
 
 
     pkgs.kitty
