@@ -37,7 +37,6 @@
     pkgs.gearlever
     pkgs.zed-editor
     pkgs.todoist-electron
-    pkgs.protonvpn-gui
     pkgs.discord
     pkgs.onlyoffice-bin
     pkgs.bottles
