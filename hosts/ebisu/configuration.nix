@@ -141,7 +141,7 @@
       xorg.libX11
       xorg.libXcursor
       xorg.libxcb
-      xorg.libxi
+      xorg.libXi
     ];
   };
 
