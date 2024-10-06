@@ -74,8 +74,7 @@
     LC_NAME = "en_NG";
     LC_NUMERIC = "en_NG";
     LC_PAPER = "en_NG";
-    LC_TELEPHONE = "en_NG";
-    LC_TIME = "en_NG";
+    LC_TELEPHONE = "en_NG"; LC_TIME = "en_NG";
   };
 
   # Enable the X11 windowing system.
@@ -136,6 +135,16 @@
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      xorg.libX11
+      xorg.libXcursor
+      xorg.libxcb
+      xorg.libxi
+    ];
+  };
+
   # Setup home-manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -155,6 +164,7 @@
     gnupg
     #  wget
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
