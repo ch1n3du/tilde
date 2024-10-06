@@ -142,6 +142,10 @@
       xorg.libXcursor
       xorg.libxcb
       xorg.libXi
+      libxkbcommon 
+      xorg.libxcb  
+      pkgs.vulkan-loader
+      pkgs.glfw
     ];
   };
 
