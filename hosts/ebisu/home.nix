@@ -33,8 +33,6 @@
     pkgs.vscodium
     pkgs.vlc
     pkgs.appimage-run
-    pkgs.bitwarden-desktop
-    pkgs.gearlever
     pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.discord
@@ -42,6 +40,7 @@
     pkgs.bottles
     pkgs.anki-bin
     pkgs.newsflash
+    pkgs.qbittorrent-qt5
 
 
     pkgs.kitty
