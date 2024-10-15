@@ -40,8 +40,7 @@
     pkgs.bottles
     pkgs.anki-bin
     pkgs.newsflash
-    pkgs.qbittorrent-qt5
-
+    pkgs.qbittorrent
 
     pkgs.kitty
     pkgs.neofetch
