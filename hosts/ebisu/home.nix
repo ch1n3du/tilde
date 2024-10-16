@@ -43,6 +43,7 @@
     pkgs.newsflash
     pkgs.qbittorrent
     pkgs.cozy
+    pkgs.gnome.gnome-tweaks
 
 
     # Terminal apps
