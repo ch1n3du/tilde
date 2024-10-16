@@ -24,6 +24,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    # GUI Apps
     pkgs.zotero_7
     pkgs.obsidian
     pkgs.thunderbird
@@ -41,7 +42,10 @@
     pkgs.anki-bin
     pkgs.newsflash
     pkgs.qbittorrent
+    pkgs.cozy
 
+
+    # Terminal apps
     pkgs.kitty
     pkgs.neofetch
     pkgs.bat
