@@ -44,6 +44,8 @@
     pkgs.qbittorrent
     pkgs.cozy
     pkgs.gnome-tweaks
+    pkgs.spotify
+    pkgs.spotify-qt
 
 
     # Terminal apps
