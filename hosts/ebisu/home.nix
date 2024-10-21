@@ -61,6 +61,7 @@
     pkgs.nix-direnv
     pkgs.glow
     pkgs.gnumake
+    pkgs.exercism
 
     # Fonts
     pkgs.inter
