@@ -61,6 +61,7 @@
     pkgs.nix-direnv
     pkgs.glow
     pkgs.gnumake
+    pkgs.cmake
     pkgs.exercism
 
     # Fonts
