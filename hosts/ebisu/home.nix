@@ -46,7 +46,7 @@
     pkgs.gnome-tweaks
     pkgs.spotify
     pkgs.spotify-qt
-    pkgs.arduino-core
+    pkgs.arduino-ide
 
 
     # Terminal apps
