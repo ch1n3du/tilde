@@ -66,6 +66,7 @@
     pkgs.gnumake
     pkgs.cmake
     pkgs.exercism
+    pkgs.typst
 
     # Fonts
     pkgs.inter
