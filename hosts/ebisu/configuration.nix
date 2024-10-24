@@ -11,7 +11,6 @@
           inputs.home-manager.nixosModules.default
           ../../modules/nixos/main-user.nix
           ../../modules/nixos/s3nixcache-mixrank.nix
-          # inputs.nixvim.homeManagerModules.nixvim
         ];
 
     # Test 'main-user' tutorial module options
@@ -20,13 +19,6 @@
 
     # Use system-d boot
     boot.loader.systemd-boot.enable = true;
-
-    # Enable GRUB booting
-    # boot.loader.grub.enable = true;
-    # boot.loader.grub.device = "nodev";
-    # boot.loader.grub.efiSupport = true;
-    # boot.loader.grub.useOSProber = true;
-    # boot.loader.efi.canTouchEfiVariables = true;
 
     # Enable flakes
     nix.settings.experimental-features = [ "nix-command" "flakes"];
@@ -113,8 +105,12 @@
     #media-session.enable = true;
   };
 
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  services.xserver.videoDrivers = [ "nvidia" ]; 
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
+
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ch1n3du = {
