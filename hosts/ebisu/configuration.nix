@@ -85,10 +85,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable Graphics
-  hardware.graphics.enable = true;
-  hardware.graphics.enable32Bit = true;
-
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -105,17 +101,24 @@
     #media-session.enable = true;
   };
 
-  hardware.opengl = {
+  # Enable graphics
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSuppor32Bit = true;
+    enable32Bit = true;
   };
 
   # Enable Nvidia
   services.xserver.videoDrivers = [ "nvidia" ]; 
+  hardware.nvidia
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    modesetting.enable = true;
     open = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    prime = {
+      sync.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
