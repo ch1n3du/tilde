@@ -183,6 +183,8 @@
     gnupg
     mangohud  # Overlay for montoring performance
     protonup
+    lutris
+    bottles
     #  wget
   ];
 
