@@ -143,6 +143,13 @@
   programs.firefox.enable = true;
   programs.zsh.enable = true;
 
+  # Enable steam
+  programs.steam.enable = true;
+  programs.steam.gamescopeSession.enable = true;
+  programs.gamemode.enable = true;
+
+
+  # Enable dynamic linking
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -174,9 +181,14 @@
   environment.systemPackages = with pkgs; [
     helix
     gnupg
+    mangohud  # Overlay for montoring performance
+    protonup
     #  wget
   ];
 
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ch1n3du/.steam/root/compatibilitytools.d";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
