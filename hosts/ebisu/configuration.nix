@@ -106,6 +106,7 @@
   };
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia.open = true;
   services.xserver.videoDrivers = [ "nvidia" ]; 
 
   # Enable touchpad support (enabled default in most desktopManager).
