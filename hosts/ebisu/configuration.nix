@@ -105,9 +105,18 @@
     #media-session.enable = true;
   };
 
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
-  hardware.nvidia.open = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSuppor32Bit = true;
+  };
+
+  # Enable Nvidia
   services.xserver.videoDrivers = [ "nvidia" ]; 
+  hardware.nvidia = {
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    open = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
