@@ -47,6 +47,7 @@
     pkgs.spotify
     pkgs.spotify-qt
     pkgs.arduino-ide
+    pkgs.foliate
 
 
     # Terminal apps
