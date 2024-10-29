@@ -34,7 +34,7 @@
     pkgs.vscodium
     pkgs.vlc
     pkgs.appimage-run
-    pkgs.zed-editor
+    # pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.discord
     pkgs.onlyoffice-bin
