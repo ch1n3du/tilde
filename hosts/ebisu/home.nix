@@ -68,6 +68,7 @@
     pkgs.cmake
     pkgs.exercism
     pkgs.typst
+    pkgs.nodejs_22
 
     # Fonts
     pkgs.inter
