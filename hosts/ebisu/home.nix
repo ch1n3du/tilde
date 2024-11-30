@@ -69,6 +69,7 @@
     pkgs.exercism
     pkgs.typst
     pkgs.nodejs_22
+    pkgs.unison-ucm
 
     # Fonts
     pkgs.inter
