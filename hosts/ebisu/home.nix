@@ -70,6 +70,7 @@
     pkgs.typst
     pkgs.nodejs_22
     pkgs.unison-ucm
+    pkgs.postgresql_16
 
     # Fonts
     pkgs.inter
