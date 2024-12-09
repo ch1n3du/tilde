@@ -204,10 +204,10 @@
 
 # Enable PostgreSQL
   services.postgresql = {
-  enable = true;
-  package = pkgs.postgresql_16;
-  # dataDir = "/data/postgresql";
-};
+    enable = true;
+    package = pkgs.postgresql_16;
+    # dataDir = "/data/postgresql";
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

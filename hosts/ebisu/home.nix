@@ -70,6 +70,9 @@
     pkgs.typst
     pkgs.nodejs_22
     pkgs.unison-ucm
+    pkgs.openssl
+    pkgs.unzip
+    pkgs.exa
 
     # Fonts
     pkgs.inter
