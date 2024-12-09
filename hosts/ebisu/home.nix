@@ -72,7 +72,7 @@
     pkgs.unison-ucm
     pkgs.openssl
     pkgs.unzip
-    pkgs.exa
+    pkgs.eza
 
     # Fonts
     pkgs.inter
