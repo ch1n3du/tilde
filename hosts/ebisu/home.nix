@@ -159,6 +159,7 @@
       cd = "z";
       cdl = "z -l";
       ll = "ls -l";
+      ls = "eza";
       mochi =  "appimage-run ~/AppImages/mochi.appimage";
     };
   };
