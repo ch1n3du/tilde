@@ -73,6 +73,7 @@
     pkgs.openssl
     pkgs.unzip
     pkgs.eza
+    pkgs.powershell
 
     # Fonts
     pkgs.inter
