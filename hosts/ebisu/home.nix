@@ -74,6 +74,7 @@
     pkgs.unzip
     pkgs.eza
     pkgs.powershell
+    pkgs.ghcup
 
     # Fonts
     pkgs.inter
