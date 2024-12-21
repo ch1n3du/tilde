@@ -101,13 +101,22 @@
     #media-session.enable = true;
   };
 
+  # Enable Ollama
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+    loadModels = [
+      "qwq"
+    ];
+  };
+
   # Enable graphics
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 
-  # Enable Nvidia
+  # Enable Nvidia settings
   services.xserver.videoDrivers = [ "nvidia" ]; 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -175,6 +184,8 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  # Enable CUDA support
+  nixpkgs.config.cudaSupport = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
