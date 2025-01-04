@@ -106,7 +106,6 @@
     enable = true;
     acceleration = "cuda";
     loadModels = [
-      "qwq"
     ];
   };
 
