@@ -48,7 +48,7 @@
     pkgs.spotify-qt
     pkgs.arduino-ide
     pkgs.foliate
-
+    pkgs.blender
 
     # Terminal apps
     pkgs.kitty
