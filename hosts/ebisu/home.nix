@@ -74,6 +74,7 @@
     pkgs.unzip
     pkgs.eza
     pkgs.uv
+    pkgs.code-cursor
 
     # Fonts
     pkgs.inter
