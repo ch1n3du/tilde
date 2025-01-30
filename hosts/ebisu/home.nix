@@ -75,6 +75,7 @@
     pkgs.eza
     pkgs.uv
     pkgs.code-cursor
+    pkgs.qemu
 
     # Fonts
     pkgs.inter
