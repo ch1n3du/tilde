@@ -77,6 +77,7 @@
     pkgs.code-cursor
     pkgs.qemu
     pkgs.pdm
+    pkgs.python313
 
     # Fonts
     pkgs.inter
