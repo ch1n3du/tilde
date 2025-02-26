@@ -49,6 +49,7 @@
     pkgs.arduino-ide
     pkgs.foliate
     pkgs.blender
+    pkgs.zoom-us
 
     # Terminal apps
     pkgs.kitty
