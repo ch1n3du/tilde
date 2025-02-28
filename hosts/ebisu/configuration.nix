@@ -169,6 +169,7 @@
       xorg.libxcb  
       pkgs.vulkan-loader
       pkgs.glfw
+      pkgs.vips
     ];
   };
 
