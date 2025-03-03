@@ -79,6 +79,7 @@
     pkgs.qemu
     pkgs.python313
     pkgs.yarn
+    pkgs.pdm
 
     # Fonts
     pkgs.inter
