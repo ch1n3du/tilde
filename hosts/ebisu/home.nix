@@ -51,6 +51,7 @@
     pkgs.blender
     pkgs.zoom-us
     pkgs.bruno
+    pkgs.bruno-cli
 
     # Terminal apps
     pkgs.kitty
