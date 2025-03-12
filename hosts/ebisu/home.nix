@@ -50,7 +50,7 @@
     pkgs.foliate
     pkgs.blender
     pkgs.zoom-us
-    pkgs.postman
+    pkgs.bruno
 
     # Terminal apps
     pkgs.kitty
