@@ -128,6 +128,17 @@
     };
   };
 
+  # Use x11
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  
+  # disable wayland
+  services.xserver.displayManager.gdm.wayland = false;
+
+  # enable Gnome
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
