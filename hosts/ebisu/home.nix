@@ -82,6 +82,8 @@
     pkgs.python313
     pkgs.yarn
     pkgs.pdm
+    pkgs.xdg-desktop-portal
+    pkgs.xdg-desktop-gnome
 
     # Fonts
     pkgs.inter
