@@ -2,7 +2,7 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     mixrank.url = "git+ssh://git@gitlab.com/mixrank/mixrank";
     home-manager = {
       url = "github:nix-community/home-manager";

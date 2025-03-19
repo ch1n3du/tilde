@@ -83,13 +83,13 @@
     pkgs.yarn
     pkgs.pdm
     pkgs.xdg-desktop-portal
-    pkgs.xdg-desktop-gnome
+    pkgs.xdg-desktop-portal-gnome
 
     # Fonts
     pkgs.inter
-    (pkgs.nerdfonts.override {
-        fonts = ["CodeNewRoman" "FiraCode" "Monaspace"];
-    })
+    pkgs.nerd-fonts.code-new-roman
+    pkgs.nerd-fonts.fira-code
+    pkgs.nerd-fonts.monaspace
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
