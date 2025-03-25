@@ -144,7 +144,7 @@
     packages = with pkgs; [
       signal-desktop
       clang
-      # rustup
+      rustup
 
       # Apps go here
     ];
