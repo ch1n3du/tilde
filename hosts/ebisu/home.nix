@@ -33,19 +33,14 @@
     pkgs.slack
     pkgs.vscodium
     pkgs.vlc
-    pkgs.appimage-run
     pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.discord
     pkgs.onlyoffice-bin
-    pkgs.bottles
-    pkgs.anki-bin
-    pkgs.newsflash
     pkgs.qbittorrent
     pkgs.cozy
     pkgs.gnome-tweaks
     pkgs.spotify
-    pkgs.spotify-qt
     pkgs.arduino-ide
     pkgs.foliate
     pkgs.blender
@@ -53,25 +48,22 @@
     pkgs.bruno
     pkgs.bruno-cli
     pkgs.rustup
-    pkgs.claude-code
+    pkgs.mochi
 
     # Terminal apps
     pkgs.kitty
     pkgs.neofetch
     pkgs.bat
     pkgs.htop
-    pkgs.lazygit
     pkgs.zoxide
     pkgs.gpustat
     pkgs.tmux
     pkgs.zsh
-    pkgs.jujutsu
     pkgs.direnv
     pkgs.nix-direnv
     pkgs.glow
     pkgs.gnumake
     pkgs.cmake
-    pkgs.exercism
     pkgs.typst
     pkgs.nodejs_22
     pkgs.unison-ucm
@@ -79,7 +71,6 @@
     pkgs.unzip
     pkgs.eza
     pkgs.uv
-    pkgs.code-cursor
     pkgs.qemu
     pkgs.python313
     pkgs.yarn
@@ -173,7 +164,6 @@
       cdl = "z -l";
       ll = "ls -l";
       ls = "eza";
-      mochi =  "appimage-run ~/AppImages/mochi.appimage";
     };
   };
 
