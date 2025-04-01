@@ -52,6 +52,8 @@
     pkgs.zoom-us
     pkgs.bruno
     pkgs.bruno-cli
+    pkgs.rustup
+    pkgs.claude-code
 
     # Terminal apps
     pkgs.kitty
