@@ -23,7 +23,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # GUI Apps
     pkgs.zotero_7
     pkgs.obsidian
@@ -75,6 +75,7 @@
     pkgs.python313
     pkgs.yarn
     pkgs.pdm
+    pkgs.docker
     pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-gnome
 
