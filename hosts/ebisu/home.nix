@@ -75,7 +75,6 @@
     pkgs.python313
     pkgs.yarn
     pkgs.pdm
-    pkgs.docker
     pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-gnome
 
