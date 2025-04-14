@@ -49,6 +49,7 @@
     pkgs.bruno-cli
     pkgs.rustup
     pkgs.mochi
+    pkgs.halloy
 
     # Terminal apps
     pkgs.kitty
@@ -106,6 +107,7 @@
     '';
 
     ".config/helix/config.toml".source = ../../configs/helix/config.toml;
+    # ".config/halloy/config.toml".source = ../../configs/halloy/config.toml;
   };
 
   # Home Manager can also manage your environment variables through
