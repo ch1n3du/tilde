@@ -74,7 +74,9 @@
     pkgs.qemu
     pkgs.python313
     pkgs.yarn
-    pkgs.pdm
+    pkgs.uxn
+
+    # Drivers
     pkgs.xdg-desktop-portal
     pkgs.xdg-desktop-portal-gnome
 

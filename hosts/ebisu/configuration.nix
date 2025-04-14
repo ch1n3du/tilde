@@ -203,7 +203,8 @@
     protonup
     lutris
     bottles
-    #  wget
+    gruvbox-gtk-theme
+    wget
   ];
 
   environment.sessionVariables = {
