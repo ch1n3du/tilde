@@ -49,7 +49,7 @@
     pkgs.bruno-cli
     pkgs.rustup
     pkgs.mochi
-    pkgs.halloy
+    pkgs.remnote
 
     # Terminal apps
     pkgs.kitty
