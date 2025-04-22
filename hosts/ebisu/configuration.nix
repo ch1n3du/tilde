@@ -105,14 +105,6 @@
     #media-session.enable = true;
   };
 
-  # Enable Ollama
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-    loadModels = [
-    ];
-  };
-
   # Enable graphics
   hardware.graphics = {
     enable = true;
