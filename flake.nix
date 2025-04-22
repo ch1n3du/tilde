@@ -16,17 +16,24 @@
     pkgs = nixpkgs.legacyPackages.${system};
   in
   {
-
     nixosConfigurations = {
-      default = nixpkgs.lib.nixosSystem {
+      ch1n3du-ebisu-nixos = nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/ebisu/configuration.nix
           inputs.home-manager.nixosModules.default
-          mixrank.nixosModules.dev-machine
+          inputs.mixrank.nixosModules.dev-machine
+        ];
+      };
+      nabu = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./hosts/nabu/configuration.nix
+          inputs.home-manager.nixosModules.default
         ];
       };
     };
-
   };
 }
