@@ -85,6 +85,7 @@
   users.users.ch1n3du = {
     isNormalUser = true;
     hashedPassword = "$y$j9T$frloJ1BpPFzDKHbZkkk2F/$SLWChGrcGlZf1fUzGnCXJ5/fKCuyEx2sNHB8hcqN0JA";
+    shell = pkgs.zsh;
     extraGroups = [ 
       "wheel"  # Enable ‘sudo’ for the user.
       "networkmanager"
@@ -108,6 +109,15 @@
   # zsh
   users.defaultUserShell = pkgs.zsh;
   programs.zsh.enable = true;
+
+  # Setup home-manager
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
+    users = {
+      "ch1n3du" = import ./home.nix;
+    };
+  };
 
   # programs.firefox.enable = true;
 
