@@ -39,11 +39,11 @@
   networking.networkmanager.enable = true;
 
   # Disable NetworkManager's internal DNS resolution
-  networking.networkmanager.dns = "none";
+  # networking.networkmanager.dns = "none";
 
   # These options are unnecessary when managing DNS ourselves
-  networking.useDHCP = false;
-  networking.dhcpcd.enable = false;
+  # networking.useDHCP = false;
+  # networking.dhcpcd.enable = false;
 
   # Use Cloudflare for DNS resolution
   networking.nameservers = [
