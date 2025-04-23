@@ -28,10 +28,7 @@
     ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
-  services.resolved = {
-    enable = true;
-    multicastDns = "true";
-  };
+  services.resolved.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -245,8 +242,8 @@
     enable = true;
 
     # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    networking.firewall.allowedUDPPorts = [ 5353 ];
+    # allowedTCPPorts = [ ... ];
+    allowedUDPPorts = [ 5353 ];
   };
 
   # This value determines the NixOS release from which the default

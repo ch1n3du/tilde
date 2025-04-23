@@ -177,8 +177,8 @@
     enable = true;
 
     # Open ports in the firewall.
-    # networking.firewall.allowedTCPPorts = [ ... ];
-    networking.firewall.allowedUDPPorts = [ 5353 ];
+    # allowedTCPPorts = [ ... ];
+    allowedUDPPorts = [ 5353 ];
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
