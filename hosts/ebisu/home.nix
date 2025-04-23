@@ -76,6 +76,8 @@
     pkgs.python313
     pkgs.yarn
     pkgs.uxn
+    pkgs.jellyfin
+    pkgs.jellyfin-web
 
     # Drivers
     pkgs.xdg-desktop-portal
