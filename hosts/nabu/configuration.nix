@@ -181,17 +181,6 @@
     allowedUDPPorts = [ 5353 ];
   };
 
-  services.jellyfin = {
-    enable = true;
-    openFirewall = true;
-    user = "ch1n3du";
-  };
-
-  services.jellyseerr = {
-    enable = true;
-    openFirewall = true;
-  };
-
   # setup a reverse proxy
   services.caddy = {
     enable = true;
@@ -203,6 +192,30 @@
         reverse_proxy nabu.local:5055
       '';
     };
+  };
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "ch1n3du";
+  };
+
+  services.jellyseerr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  services.radarr = {
+    enable = true;
+    openFirewall = true;
+    settings = {};
+  };
+
+  services.sonarr = {
+    enable = true;
+    update.automatically = true;
+    openFirewall = true;
+    settings = {};
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
