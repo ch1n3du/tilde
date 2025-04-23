@@ -168,6 +168,7 @@
       cdl = "z -l";
       ll = "ls -l";
       ls = "eza";
+      nabu = "kitten ssh ch1n3du@nabu.local";
     };
   };
 

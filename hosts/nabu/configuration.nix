@@ -181,6 +181,30 @@
     allowedUDPPorts = [ 5353 ];
   };
 
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+    user = "ch1n3du";
+  };
+
+  services.jellyseerr = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  # setup a reverse proxy
+  services.caddy = {
+    enable = true;
+    virtualHosts = {
+      "jellyfin.nabu.local".extraConfig = ''
+        reverse_proxy nabu.local:8096
+      '';
+      "jellyseer.nabu.local".extraConfig = ''
+        reverse_proxy nabu.local:5055
+      '';
+    };
+  };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
