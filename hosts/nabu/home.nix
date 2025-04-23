@@ -63,6 +63,9 @@
     ".gitignore_global".text = ''
       .jj/
     '';
+    ".config/deluge/auth/auth_file.txt".text = ''
+      ch1n3du:waowwaowwaow:10
+    '';
 
     ".config/helix/config.toml".source = ../../configs/helix/config.toml;
     # ".config/halloy/config.toml".source = ../../configs/halloy/config.toml;

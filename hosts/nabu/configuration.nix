@@ -185,12 +185,38 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
+      "deluge.nabu.local".extraConfig = ''
+        reverse_proxy nabu.local:8112
+      '';
       "jellyfin.nabu.local".extraConfig = ''
         reverse_proxy nabu.local:8096
       '';
       "jellyseer.nabu.local".extraConfig = ''
         reverse_proxy nabu.local:5055
       '';
+      "sonarr.nabu.local".extraConfig = ''
+        reverse_proxy nabu.local:8989
+      '';
+      "radarr.nabu.local".extraConfig = ''
+        reverse_proxy nabu.local:7878
+      '';
+    };
+  };
+
+  services.deluge = {
+    declarative = true;
+    enable = true;
+    openFirewall = true;
+    authFile = .config/deluge/auth/auth_file.txt;
+    web = {
+      enable = true;
+      openFirewall = true;
+    };
+    config = {
+      max_upload_speed = "1000.0";
+      share_ratio_limit = "2.0";
+      allow_remote = true;
+      # daemon_port = 58846;
     };
   };
 
@@ -199,21 +225,19 @@
     openFirewall = true;
     user = "ch1n3du";
   };
-
   services.jellyseerr = {
     enable = true;
     openFirewall = true;
   };
 
+  # arr suite
   services.radarr = {
     enable = true;
     openFirewall = true;
     settings = {};
   };
-
   services.sonarr = {
     enable = true;
-    update.automatically = true;
     openFirewall = true;
     settings = {};
   };
