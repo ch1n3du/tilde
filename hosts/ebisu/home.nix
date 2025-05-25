@@ -28,8 +28,6 @@
     pkgs.zotero_7
     pkgs.obsidian
     pkgs.thunderbird
-    pkgs.telegram-desktop
-    pkgs.signal-desktop
     pkgs.slack
     pkgs.vscodium
     pkgs.vlc
@@ -38,7 +36,6 @@
     pkgs.discord
     pkgs.onlyoffice-bin
     pkgs.qbittorrent
-    pkgs.cozy
     pkgs.gnome-tweaks
     pkgs.spotify
     pkgs.arduino-ide
@@ -78,6 +75,8 @@
     pkgs.uxn
     pkgs.jellyfin
     pkgs.jellyfin-web
+    pkgs.hugo
+    pkgs.diesel-cli
 
     # Drivers
     pkgs.xdg-desktop-portal

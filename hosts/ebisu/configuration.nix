@@ -24,7 +24,7 @@
     nix.settings.experimental-features = [ "nix-command" "flakes"];
 
     nix.settings.trusted-users = [
-    "root"
+      "root"
     ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
@@ -132,7 +132,7 @@
   users.users.ch1n3du = {
     isNormalUser = true;
     description = "ch1n3du";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       signal-desktop
@@ -204,19 +204,9 @@
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ch1n3du/.steam/root/compatibilitytools.d";
   };
 
-   # Enable common container config files in /etc/containers
-    virtualisation.containers.enable = true;
-    virtualisation = {
-      podman = {
-        enable = true;
-
-        # Create a `docker` alias for podman, to use it as a drop-in replacement
-        dockerCompat = true;
-
-        # Required for containers under podman-compose to be able to talk to each other.
-        defaultNetwork.settings.dns_enabled = true;
-      };
-    };
+  virtualisation.docker = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
