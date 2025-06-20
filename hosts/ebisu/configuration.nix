@@ -138,6 +138,7 @@
       signal-desktop
       clang
       rustup
+      postgresql
 
       # Apps go here
     ];

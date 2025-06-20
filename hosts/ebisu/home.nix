@@ -47,6 +47,7 @@
     pkgs.rustup
     pkgs.mochi
     pkgs.remnote
+    pkgs.code-cursor
 
     # Terminal apps
     pkgs.kitty
