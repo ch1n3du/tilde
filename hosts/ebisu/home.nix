@@ -45,9 +45,9 @@
     pkgs.bruno
     pkgs.bruno-cli
     pkgs.rustup
-    pkgs.mochi
     pkgs.remnote
     pkgs.code-cursor
+    pkgs.google-chrome
 
     # Terminal apps
     pkgs.kitty
@@ -78,6 +78,8 @@
     pkgs.jellyfin-web
     pkgs.hugo
     pkgs.diesel-cli
+    pkgs.ripgrep
+    pkgs.go
 
     # Drivers
     pkgs.xdg-desktop-portal
