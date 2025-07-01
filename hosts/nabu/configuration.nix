@@ -59,8 +59,8 @@
 
 
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   
 
   # Configure keymap in X11
@@ -84,7 +84,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ch1n3du = {
     isNormalUser = true;
-    hashedPassword = "$y$j9T$frloJ1BpPFzDKHbZkkk2F/$SLWChGrcGlZf1fUzGnCXJ5/fKCuyEx2sNHB8hcqN0JA";
+    hashedPassword = "$6$mc76ZmffXvKgvxMU$vS2FXwqNuktcg6NyIaaWm//GdqBgGIm0MIj6sYn4P8zguHgmdbjYBfQV0TmyP3s02D2cu7Vl5/vhUqYyYM6TT/";
     shell = pkgs.zsh;
     extraGroups = [ 
       "wheel"  # Enable ‘sudo’ for the user.
@@ -97,6 +97,7 @@
       neofetch
       hollywood
       ranger
+      firefox
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH0GRtZWrTMZwtk3FBj+w0W39GOlN5SiHQY2wXXbVTEc ch1n3du@ch1n3du-ebisu-nixos"
@@ -186,10 +187,10 @@
     enable = true;
     virtualHosts = {
       "deluge.nabu.local".extraConfig = ''
-        reverse_proxy nabu.local:8112
+        reverse_proxy http://nabu.local:8112
       '';
       "jellyfin.nabu.local".extraConfig = ''
-        reverse_proxy nabu.local:8096
+        reverse_proxy http://localhost:8096
       '';
       "jellyseer.nabu.local".extraConfig = ''
         reverse_proxy nabu.local:5055
@@ -207,7 +208,14 @@
     declarative = true;
     enable = true;
     openFirewall = true;
-    authFile = .config/deluge/auth/auth_file.txt;
+    dataDir = "/media";
+    authFile = pkgs.writeTextFile {
+      name = "deluge-auth";
+      text = ''
+        localclient::10
+        ch1n3du:password:10
+      '';
+    };
     web = {
       enable = true;
       openFirewall = true;
@@ -216,7 +224,21 @@
       max_upload_speed = "1000.0";
       share_ratio_limit = "2.0";
       allow_remote = true;
+      enabled_plugins = ["Label"];
       # daemon_port = 58846;
+    };
+  };
+
+  # configure "/media" permissions
+  systemd.tmpfiles.settings = {
+    "10-make-media-folder-uwu" = {
+      "/media" = {
+        d = {
+          group = "root";
+          mode = "0777";
+          user = "root";
+        };
+      };
     };
   };
 
@@ -237,6 +259,11 @@
     settings = {};
   };
   services.sonarr = {
+    enable = true;
+    openFirewall = true;
+    settings = {};
+  };
+  services.prowlarr = {
     enable = true;
     openFirewall = true;
     settings = {};

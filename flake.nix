@@ -31,6 +31,7 @@
         specialArgs = {inherit inputs;};
         modules = [
           ./hosts/nabu/configuration.nix
+          inputs.mixrank.nixosModules.dev-machine
           inputs.home-manager.nixosModules.default
         ];
       };

@@ -38,6 +38,17 @@
     pkgs.openssl
     pkgs.unzip
     pkgs.eza
+    pkgs.go
+    pkgs.rustup
+
+    # GUI Apps
+    pkgs.vscodium
+    pkgs.slack
+    pkgs.obsidian
+    pkgs.todoist-electron
+    pkgs.discord
+    pkgs.remnote
+    pkgs.zotero
 
     # Fonts
     pkgs.inter
@@ -136,7 +147,7 @@
   programs.git = {
     enable = true;
     userName = "Daniel Onyesoh";
-    userEmail = "danielonyesoh@gmail.com";
+    userEmail = "danielonyeso@mixrank.com";
     aliases = {
       co = "checkout";
       st = "status";
