@@ -80,6 +80,7 @@
     pkgs.diesel-cli
     pkgs.ripgrep
     pkgs.go
+    pkgs.scc
 
     # Drivers
     pkgs.xdg-desktop-portal
