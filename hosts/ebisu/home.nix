@@ -65,7 +65,6 @@
     pkgs.cmake
     pkgs.typst
     pkgs.nodejs_22
-    pkgs.unison-ucm
     pkgs.openssl
     pkgs.unzip
     pkgs.eza
@@ -73,14 +72,11 @@
     pkgs.qemu
     pkgs.python313
     pkgs.yarn
-    pkgs.uxn
-    pkgs.jellyfin
-    pkgs.jellyfin-web
     pkgs.hugo
-    pkgs.diesel-cli
     pkgs.ripgrep
     pkgs.go
     pkgs.scc
+    pkgs.tree
 
     # Drivers
     pkgs.xdg-desktop-portal
