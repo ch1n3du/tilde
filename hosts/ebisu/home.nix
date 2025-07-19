@@ -77,6 +77,7 @@
     pkgs.go
     pkgs.scc
     pkgs.tree
+    pkgs.jujutsu
 
     # Drivers
     pkgs.xdg-desktop-portal
