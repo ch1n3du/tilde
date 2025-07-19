@@ -77,7 +77,6 @@
     pkgs.go
     pkgs.scc
     pkgs.tree
-    pkgs.jujutsu
 
     # Drivers
     pkgs.xdg-desktop-portal
@@ -193,6 +192,16 @@
       #     insteadOf = "https://github.com/";
       #   };
       # };
+    };
+  };
+
+  # Enable Jujutsu
+  programs.jujutsu = {
+    enable = true;
+    settings = {
+      user.email = "danielonyesoh@gmail.com";
+      user.name = "Daniel Onyesoh";
+      ui.paginate = "never";
     };
   };
 
