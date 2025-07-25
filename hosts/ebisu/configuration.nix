@@ -70,6 +70,12 @@
     LC_TELEPHONE = "en_NG"; LC_TIME = "en_NG";
   };
 
+  # support som extra locales
+  i18n.supportedLocales = [ 
+    "en_US.UTF-8/UTF-8" 
+    "pt_BR.UTF-8/UTF-8"
+  ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -79,6 +85,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -227,7 +234,7 @@
   };
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh.enable = true;
 
   networking.firewall = {
     enable = true;
