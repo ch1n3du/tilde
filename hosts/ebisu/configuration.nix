@@ -72,6 +72,7 @@
 
   # support som extra locales
   i18n.supportedLocales = [ 
+    "en_NG.UTF-8/UTF-8"
     "en_US.UTF-8/UTF-8" 
     "pt_BR.UTF-8/UTF-8"
   ];
