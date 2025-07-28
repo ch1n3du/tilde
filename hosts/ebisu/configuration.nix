@@ -1,11 +1,10 @@
     # Edit this configuration file to define what should be installed on
     # your system.  Help is available in the configuration.nix(5) man page
     # and in the NixOS manual (accessible by running ‘nixos-help’).
-
     { config, pkgs, inputs, ... }:
 
     {
-    imports =
+      imports =
         [
           ./hardware-configuration.nix   # Include the results of the hardware scan.
           inputs.home-manager.nixosModules.default
@@ -71,8 +70,7 @@
   };
 
   # support som extra locales
-  i18n.supportedLocales = [ 
-    "en_NG.UTF-8/UTF-8"
+  i18n.extraLocales = [ 
     "en_US.UTF-8/UTF-8" 
     "pt_BR.UTF-8/UTF-8"
   ];
@@ -98,7 +96,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -227,7 +225,7 @@
 
   # List services that you want to enable:
 
-# Enable PostgreSQL
+  # Enable PostgreSQL
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_16;
