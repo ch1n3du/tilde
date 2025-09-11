@@ -61,6 +61,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.gnome.gcr-ssh-agent.enable = false;
   
 
   # Configure keymap in X11
@@ -168,10 +169,10 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-    };
+     settings = {
+       PasswordAuthentication = false;
+       PermitRootLogin = "no";
+     };
   };
 
   networking.firewall = {

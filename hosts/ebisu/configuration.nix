@@ -1,30 +1,26 @@
-    # Edit this configuration file to define what should be installed on
-    # your system.  Help is available in the configuration.nix(5) man page
-    # and in the NixOS manual (accessible by running ‘nixos-help’).
-    { config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
+{
+  imports =
+  [
+    ./hardware-configuration.nix   # Include the results of the hardware scan.
+    inputs.home-manager.nixosModules.default
+    ../../modules/nixos/main-user.nix
+    ../../modules/nixos/s3nixcache-mixrank.nix
+  ];
 
-    {
-      imports =
-        [
-          ./hardware-configuration.nix   # Include the results of the hardware scan.
-          inputs.home-manager.nixosModules.default
-          ../../modules/nixos/main-user.nix
-          ../../modules/nixos/s3nixcache-mixrank.nix
-        ];
+  # Test 'main-user' tutorial module options
+  # main-user.enable = true;
+  # main-user.userName = "ch1n3du2";
 
-    # Test 'main-user' tutorial module options
-    # main-user.enable = true;
-    # main-user.userName = "ch1n3du2";
+  # Use system-d boot
+  boot.loader.systemd-boot.enable = true;
 
-    # Use system-d boot
-    boot.loader.systemd-boot.enable = true;
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes"];
 
-    # Enable flakes
-    nix.settings.experimental-features = [ "nix-command" "flakes"];
-
-    nix.settings.trusted-users = [
-      "root"
-    ];
+  nix.settings.trusted-users = [
+    "root"
+  ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   services.resolved.enable = true;
