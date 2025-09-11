@@ -48,35 +48,54 @@
     pkgs.remnote
     pkgs.code-cursor
     pkgs.google-chrome
+    pkgs.telegram-desktop
 
     # Terminal apps
-    pkgs.kitty
-    pkgs.neofetch
-    pkgs.bat
-    pkgs.htop
-    pkgs.zoxide
-    pkgs.gpustat
-    pkgs.tmux
-    pkgs.zsh
-    pkgs.direnv
-    pkgs.nix-direnv
-    pkgs.glow
-    pkgs.gnumake
-    pkgs.cmake
-    pkgs.typst
-    pkgs.nodejs_22
-    pkgs.openssl
-    pkgs.unzip
-    pkgs.eza
-    pkgs.uv
-    pkgs.qemu
-    pkgs.python313
-    pkgs.yarn
-    pkgs.hugo
-    pkgs.ripgrep
-    pkgs.go
-    pkgs.scc
-    pkgs.tree
+    kitty
+    neofetch
+    bat
+    htop
+    zoxide
+    gpustat
+    tmux
+    zsh
+    glow
+    gnumake
+    cmake
+    typst
+    nodejs_22
+    openssl
+    unzip
+    eza
+    uv
+    qemu
+    python313
+    yarn
+    hugo
+    ripgrep
+    go
+    scc
+    tree
+    sqlite
+    claude-code
+    ## tooling for helix
+    ### python
+    ruff
+    ty
+    basedpyright
+    ### golang
+    gopls
+    golangci-lint-langserver
+    delve
+    ### nix
+    nixd
+    nixfmt
+    ### typescript
+    typescript-language-server
+    vscode-langservers-extracted
+    ### markdown
+    marksman
+
 
     # Drivers
     pkgs.xdg-desktop-portal
@@ -108,6 +127,7 @@
     '';
 
     ".config/helix/config.toml".source = ../../configs/helix/config.toml;
+    ".config/helix/languages.toml".source = ../../configs/helix/languages.toml;
     # ".config/halloy/config.toml".source = ../../configs/halloy/config.toml;
   };
 

@@ -100,7 +100,7 @@
       firefox
     ];
     openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH0GRtZWrTMZwtk3FBj+w0W39GOlN5SiHQY2wXXbVTEc ch1n3du@ch1n3du-ebisu-nixos"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK0UOsoyI9F/mnD0x/wyfCmXD1H7FYvhbgwh1foielMf ch1n3du@ch1n3du-ebisu-nixos"
     ];
   };
 
