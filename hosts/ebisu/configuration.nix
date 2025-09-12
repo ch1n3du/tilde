@@ -112,7 +112,7 @@
     wantedBy = [ "multi-user.target" ];
 
     serviceConfig = {
-      ExecStart = "${pkgs.openssh}/bin/ssh -N -L 127.0.0.1:8000:nabu.local:8000 ch1n3du@nabu.local"
+      ExecStart = "${pkgs.openssh}/bin/ssh -N -L 127.0.0.1:8000:nabu.local:8000 ch1n3du@nabu.local";
       Restart = "always";
       RestartSec = "10s";
       User = "mixrank";
@@ -160,7 +160,8 @@
   };
 
   # Enable firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
+  programs.firefox.enable = false;
   programs.zsh.enable = true;
 
   # Enable steam
