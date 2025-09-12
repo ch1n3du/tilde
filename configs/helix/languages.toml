@@ -48,15 +48,15 @@ language-servers = [
 ]
 ## tooling for helix
     ### python
-    ruff
-    ty
-    pyright
-    ### golang
-    gopls
-    golangci-lint-langserver
-    ### nix
-    nixd
-    ### typescript
-    typescript-language-server
-    ### markdown
-    marksman
+    # ruff
+    # ty
+    # pyright
+    # ### golang
+    # gopls
+    # golangci-lint-langserver
+    # ### nix
+    # nixd
+    # ### typescript
+    # typescript-language-server
+    # ### markdown
+    # marksman

@@ -78,6 +78,7 @@
     tree
     sqlite
     claude-code
+    pkgs.unixtools.netstat
     ## tooling for helix
     ### python
     ruff

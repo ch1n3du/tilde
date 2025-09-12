@@ -115,7 +115,7 @@
       ExecStart = "${pkgs.openssh}/bin/ssh -N -L 127.0.0.1:8000:nabu.local:8000 ch1n3du@nabu.local";
       Restart = "always";
       RestartSec = "10s";
-      User = "mixrank";
+      User = "ch1n3du";
       PrivateNetwork = false;
     };
   };
