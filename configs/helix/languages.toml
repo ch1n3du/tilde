@@ -1,0 +1,62 @@
+[[language]]
+name = "python"
+language-servers = [ "basedpyright", "ruff" ]
+auto-format = true
+[language-server.ruff]
+command = "ruff"
+args = ["server"]
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+[[language]]
+name = "python"
+language-servers = [ "basedpyright" ]
+
+[[language]]
+name = "go"
+auto-format = true
+
+[[language]]
+name = "nix"
+language-servers = [ "nixd" ]
+formatter = { command = "nixfmt" }
+
+[[language]]
+name = "javascript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+[[language]]
+name = "jsx"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+[[language]]
+name = "tsx"
+language-servers = [
+  "typescript-language-server",
+  "vscode-eslint-language-server",
+]
+## tooling for helix
+    ### python
+    ruff
+    ty
+    pyright
+    ### golang
+    gopls
+    golangci-lint-langserver
+    ### nix
+    nixd
+    ### typescript
+    typescript-language-server
+    ### markdown
+    marksman
