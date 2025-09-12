@@ -23,7 +23,6 @@
   ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
-  services.resolved.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -105,6 +104,12 @@
     # use the example session manager (no others are packaged yet so this is enabled by default,
     # no need to redefine it in your config for now)
     #media-session.enable = true;
+  };
+  services.resolved.enable = true;
+  systemd.services."customer-ssh-tunnel" = {
+    description = "Secure SSH Tunnel";
+    after = [ "network.target" ];
+    wantedBy = [ "" ];
   };
 
   # Enable graphics
