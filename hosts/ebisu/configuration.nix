@@ -109,7 +109,15 @@
   systemd.services."customer-ssh-tunnel" = {
     description = "Secure SSH Tunnel";
     after = [ "network.target" ];
-    wantedBy = [ "" ];
+    wantedBy = [ "multi-user.target" ];
+
+    serviceConfig = {
+      ExecStart = "${pkgs.openssh}/bin/ssh -N -L 127.0.0.1:8000:nabu.local:8000 ch1n3du@nabu.local"
+      Restart = "always";
+      RestartSec = "10s";
+      User = "mixrank";
+      PrivateNetwork = false;
+    };
   };
 
   # Enable graphics
