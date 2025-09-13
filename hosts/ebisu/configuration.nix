@@ -1,11 +1,16 @@
-{ config, pkgs, inputs, ... }:
 {
-  imports =
-  [
-    ./hardware-configuration.nix   # Include the results of the hardware scan.
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  imports = [
+    ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/s3nixcache-mixrank.nix
+    ../../modules/nixos/ssh-tunnels.nix
   ];
 
   # Test 'main-user' tutorial module options
@@ -16,13 +21,28 @@
   boot.loader.systemd-boot.enable = true;
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.settings.trusted-users = [
     "root"
   ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
+  # services.sshTunnels = {
+  #   enable = true;
+  #   tunnels = {
+  #     nabu = {
+  #       server_hostname = "nabu.local";
+  #       server_port = 8000;
+  #       username = "ch1n3du";
+  #       local_port = 8000;
+  #       service_user = "mixrank";
+  #     };
+  #   };
+  # };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -61,12 +81,13 @@
     LC_NAME = "en_NG";
     LC_NUMERIC = "en_NG";
     LC_PAPER = "en_NG";
-    LC_TELEPHONE = "en_NG"; LC_TIME = "en_NG";
+    LC_TELEPHONE = "en_NG";
+    LC_TIME = "en_NG";
   };
 
   # support som extra locales
-  i18n.extraLocales = [ 
-    "en_US.UTF-8/UTF-8" 
+  i18n.extraLocales = [
+    "en_US.UTF-8/UTF-8"
     "pt_BR.UTF-8/UTF-8"
   ];
 
@@ -106,19 +127,6 @@
     #media-session.enable = true;
   };
   services.resolved.enable = true;
-  systemd.services."customer-ssh-tunnel" = {
-    description = "Secure SSH Tunnel";
-    after = [ "network.target" ];
-    wantedBy = [ "multi-user.target" ];
-
-    serviceConfig = {
-      ExecStart = "${pkgs.openssh}/bin/ssh -N -L 127.0.0.1:8000:nabu.local:8000 ch1n3du@nabu.local";
-      Restart = "always";
-      RestartSec = "10s";
-      User = "ch1n3du";
-      PrivateNetwork = false;
-    };
-  };
 
   # Enable graphics
   hardware.graphics = {
@@ -127,7 +135,7 @@
   };
 
   # Enable Nvidia settings
-  services.xserver.videoDrivers = [ "nvidia" ]; 
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -142,12 +150,15 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ch1n3du = {
     isNormalUser = true;
     description = "ch1n3du";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       signal-desktop
@@ -169,7 +180,6 @@
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
 
-
   # Enable dynamic linking
   programs.nix-ld = {
     enable = true;
@@ -178,8 +188,8 @@
       xorg.libXcursor
       xorg.libxcb
       xorg.libXi
-      libxkbcommon 
-      xorg.libxcb  
+      libxkbcommon
+      xorg.libxcb
       pkgs.vulkan-loader
       pkgs.glfw
       pkgs.vips
@@ -209,7 +219,7 @@
   environment.systemPackages = with pkgs; [
     helix
     gnupg
-    mangohud  # Overlay for montoring performance
+    mangohud # Overlay for montoring performance
     protonup
     lutris
     bottles
