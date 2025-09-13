@@ -146,8 +146,7 @@
   };
 
   # Enable firefox.
-  # programs.firefox.enable = true;
-  programs.firefox.enable = false;
+  programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   # Enable steam

@@ -5,7 +5,7 @@ with lib;
 let
   cfg = config.services.sshTunnels;
 
-  # Helper function to create a systemd service for each tunnel
+  # helper function to create a systemd service for each tunnel
   mkTunnelService = tunnel: {
     name = "ssh-tunnel-${tunnel.name}";
     value = {
@@ -38,7 +38,7 @@ let
         User = tunnel.service_user;
         PrivateNetwork = false;
 
-        # Additional hardening options
+        # additional hardening options
         PrivateTmp = true;
         ProtectSystem = "strict";
         ProtectHome = "read-only";
