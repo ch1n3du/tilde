@@ -22,15 +22,14 @@
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   services.sshTunnels = {
     enable = true;
-    tunnels = {
-      nabu = {
-        server_hostname = "nabu.local";
-        server_port = 8000;
-        username = "ch1n3du";
-        local_port = 8000;
-        service_user = "mixrank";
-      };
-    };
+    tunnels = [{
+      name = "nabu";
+      server_hostname = "nabu.local";
+      server_port = 8000;
+      username = "ch1n3du";
+      local_port = 8000;
+      service_user = "mixrank";
+    }];
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
