@@ -28,7 +28,7 @@
       server_port = 8000;
       ssh_username = "ch1n3du";
       local_port = 8000;
-      service_user = "mixrank";
+      service_user = "ch1n3du";
     }];
   };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
