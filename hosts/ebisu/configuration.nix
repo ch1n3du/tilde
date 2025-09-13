@@ -1,10 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}:
-{
+{ config, pkgs, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
@@ -21,28 +15,23 @@
   boot.loader.systemd-boot.enable = true;
 
   # Enable flakes
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nix.settings.trusted-users = [
-    "root"
-  ];
+  nix.settings.trusted-users = [ "root" ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
-  # services.sshTunnels = {
-  #   enable = true;
-  #   tunnels = {
-  #     nabu = {
-  #       server_hostname = "nabu.local";
-  #       server_port = 8000;
-  #       username = "ch1n3du";
-  #       local_port = 8000;
-  #       service_user = "mixrank";
-  #     };
-  #   };
-  # };
+  services.sshTunnels = {
+    enable = true;
+    tunnels = {
+      nabu = {
+        server_hostname = "nabu.local";
+        server_port = 8000;
+        username = "ch1n3du";
+        local_port = 8000;
+        service_user = "mixrank";
+      };
+    };
+  };
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -60,12 +49,7 @@
   # networking.dhcpcd.enable = false;
 
   # Use Cloudflare for DNS resolution
-  networking.nameservers = [
-    "1.1.1.1"
-    "1.0.0.1"
-    "8.8.8.8"
-    "8.8.4.4"
-  ];
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" "8.8.8.8" "8.8.4.4" ];
 
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
@@ -86,10 +70,7 @@
   };
 
   # support som extra locales
-  i18n.extraLocales = [
-    "en_US.UTF-8/UTF-8"
-    "pt_BR.UTF-8/UTF-8"
-  ];
+  i18n.extraLocales = [ "en_US.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -100,7 +81,6 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.gcr-ssh-agent.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -154,11 +134,7 @@
   users.users.ch1n3du = {
     isNormalUser = true;
     description = "ch1n3du";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-    ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       signal-desktop
@@ -204,9 +180,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
-    users = {
-      "ch1n3du" = import ./home.nix;
-    };
+    users = { "ch1n3du" = import ./home.nix; };
   };
 
   # Allow unfree packages
@@ -228,12 +202,11 @@
   ];
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ch1n3du/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
+      "/home/ch1n3du/.steam/root/compatibilitytools.d";
   };
 
-  virtualisation.docker = {
-    enable = true;
-  };
+  virtualisation.docker = { enable = true; };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
