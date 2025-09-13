@@ -26,7 +26,7 @@
       name = "nabu";
       server_hostname = "nabu.local";
       server_port = 8000;
-      username = "ch1n3du";
+      ssh_username = "ch1n3du";
       local_port = 8000;
       service_user = "mixrank";
     }];
