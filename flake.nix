@@ -32,7 +32,7 @@
           modules = [
             ./hosts/ebisu/configuration.nix
             inputs.home-manager.nixosModules.default
-            # inputs.mixrank.nixosModules.dev-machine
+            inputs.mixrank.nixosModules.dev-machine
           ];
         };
         nabu = nixpkgs.lib.nixosSystem {
@@ -41,7 +41,7 @@
           modules = [
             ./hosts/nabu/configuration.nix
             inputs.home-manager.nixosModules.default
-            # inputs.mixrank.nixosModules.dev-machine
+            inputs.mixrank.nixosModules.dev-machine
           ];
         };
       };
