@@ -28,8 +28,11 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
+  # Use GRUB for BIOS boot
+  boot.loader.grub.enable = true;
 
   networking.hostName = "nabu"; # Define your hostname.
   # pick only one of the below networking options.

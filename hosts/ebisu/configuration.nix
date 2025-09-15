@@ -17,7 +17,7 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nix.settings.trusted-users = [ "root" ];
+  nix.settings.trusted-users = [ "root" "ch1n3du" ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   services.sshTunnels = {
@@ -146,7 +146,7 @@
   };
 
   # Enable firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.zsh.enable = true;
 
   # Enable steam

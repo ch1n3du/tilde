@@ -49,6 +49,7 @@
     pkgs.code-cursor
     pkgs.google-chrome
     pkgs.telegram-desktop
+    pkgs.firefox
 
     # Terminal apps
     kitty
