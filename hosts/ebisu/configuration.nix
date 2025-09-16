@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }: {
+{ config, pkgs, inputs, lib, ... }: {
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
@@ -32,6 +32,18 @@
       service_user = "ch1n3du";
     }];
   };
+
+  # enable lix overlay
+  # nixpkgs.overlays = [ (final: prev: {
+  #   inherit (final.lixPackageSets.stable)
+  #     nixpkgs-review
+  #     nix-direnv
+  #     nix-eval-jobs
+  #     nix-fast-build
+  #     colmena;
+  # }) ];
+
+  nix.package = lib.mkForce pkgs.lixPackageSets.stable.lix;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
