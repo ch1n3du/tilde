@@ -2,6 +2,7 @@
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
+    inputs.mixrank.nixosModules.dev-machine
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/s3nixcache-mixrank.nix
     ../../modules/nixos/ssh-tunnels.nix

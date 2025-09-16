@@ -178,11 +178,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757920978,
-        "narHash": "sha256-Mv16aegXLulgyDunijP6SPFJNm8lSXb2w3Q0X+vZ9TY=",
+        "lastModified": 1757997814,
+        "narHash": "sha256-F+1aoG+3NH4jDDEmhnDUReISyq6kQBBuktTUqCUWSiw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "11cc5449c50e0e5b785be3dfcb88245232633eb8",
+        "rev": "5820376beb804de9acf07debaaff1ac84728b708",
         "type": "github"
       },
       "original": {
@@ -201,11 +201,11 @@
         "nixpkgs_py3": "nixpkgs_py3"
       },
       "locked": {
-        "lastModified": 1757937534,
-        "narHash": "sha256-CpE1kRDHJDYLq0YvEUVfA2GntQFSmAoAt3tfYywrDQ0=",
+        "lastModified": 1758016717,
+        "narHash": "sha256-s9X6jc8Qxdi7gcwDOtZ8LgAJBV9gVtlIaYkud9TqTRc=",
         "ref": "refs/heads/master",
-        "rev": "ec300198c8cee25f04e355b60046ec6ec59a04f0",
-        "revCount": 77475,
+        "rev": "7b5507c928bc28b544954c4bdd5c98acc9985174",
+        "revCount": 77544,
         "type": "git",
         "url": "ssh://git@gitlab.com/mixrank/mixrank"
       },
