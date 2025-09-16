@@ -196,9 +196,15 @@
         "cursor-cli": "cursor-cli",
         "cursor-ide": "cursor-ide",
         "nix-forall": "nix-forall",
-        "nixpkgs": "nixpkgs_5",
-        "nixpkgs_old": "nixpkgs_old",
-        "nixpkgs_py3": "nixpkgs_py3"
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs_old": [
+          "nixpkgs"
+        ],
+        "nixpkgs_py3": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1758016717,
@@ -374,22 +380,6 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1737072480,
-        "narHash": "sha256-xN1d8UQOoslAQgVt362xuYI3eDr7qWu0YrUzNKc3c2g=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a91526c073dc4ec6fb6a4b91c72231ed75f9d01",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a91526c073dc4ec6fb6a4b91c72231ed75f9d01",
-        "type": "github"
-      }
-    },
-    "nixpkgs_6": {
-      "locked": {
         "lastModified": 1757745802,
         "narHash": "sha256-hLEO2TPj55KcUFUU1vgtHE9UEIOjRcH/4QbmfHNF820=",
         "owner": "nixos",
@@ -401,39 +391,6 @@
         "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_old": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1568853802,
-        "narHash": "sha256-eFyFVDVExwB1aGHVmemgh57EAcTs5rekWhlPnxAowu8=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2c906666e54c9f050b4a25142b4ff0e73c9b7dcc",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2c906666e54c9f050b4a25142b4ff0e73c9b7dcc",
-        "type": "github"
-      }
-    },
-    "nixpkgs_py3": {
-      "locked": {
-        "lastModified": 1737072480,
-        "narHash": "sha256-xN1d8UQOoslAQgVt362xuYI3eDr7qWu0YrUzNKc3c2g=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a91526c073dc4ec6fb6a4b91c72231ed75f9d01",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "3a91526c073dc4ec6fb6a4b91c72231ed75f9d01",
         "type": "github"
       }
     },
@@ -486,7 +443,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "mixrank": "mixrank",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_5"
       }
     },
     "rust-overlay": {
