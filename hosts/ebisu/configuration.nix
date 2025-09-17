@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
-    inputs.mixrank.nixosModules.dev-machine
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/s3nixcache-mixrank.nix
     ../../modules/nixos/ssh-tunnels.nix
@@ -43,7 +42,7 @@
   #     colmena;
   # }) ];
 
-  nix.package = lib.mkForce pkgs.lixPackageSets.stable.lix;
+  # nix.package = lib.mkForce pkgs.lixPackageSets.stable.lix;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -239,6 +238,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  # disable gnome's SSH agent
+  services.gnome.gcr-ssh-agent.enable = false;
 
   networking.firewall = {
     enable = true;

@@ -31,7 +31,6 @@
     pkgs.slack
     pkgs.vscodium
     pkgs.vlc
-    pkgs.zed-editor
     pkgs.todoist-electron
     pkgs.discord
     pkgs.onlyoffice-bin
@@ -155,6 +154,14 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  programs.zed-editor = {
+    enable =  true;
+    extensions = ["Python LSP"];
+    auto_update = true;
+    helix_mode = true;
+    ui_font_size = 14;
+  };
 
   programs.kitty = {
     enable = true;

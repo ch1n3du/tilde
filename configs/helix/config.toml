@@ -11,6 +11,8 @@ line-number = "relative"
 rulers = [120]
 # Force the theme to show colors
 true-color = true
+# auto format on save
+auto-format = true
 
 [editor.cursor-shape]
 insert = "bar"
