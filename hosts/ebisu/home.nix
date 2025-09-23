@@ -47,7 +47,6 @@
     pkgs.remnote
     pkgs.code-cursor
     pkgs.google-chrome
-    pkgs.telegram-desktop
     pkgs.firefox
 
     # Terminal apps
@@ -158,9 +157,11 @@
   programs.zed-editor = {
     enable =  true;
     extensions = ["Python LSP"];
-    auto_update = true;
-    helix_mode = true;
-    ui_font_size = 14;
+    userSettings = {
+      auto_update = true;
+      helix_mode = true;
+      ui_font_size = 14;
+    };
   };
 
   programs.kitty = {

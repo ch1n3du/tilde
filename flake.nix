@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    # mixrank.url = "git+ssh://git@gitlab.com/mixrank/mixrank";
-    mixrank.url = "git+file:///home/ch1n3du/Code/mixrank";
+    mixrank.url = "git+ssh://git@gitlab.com/mixrank/mixrank";
+    # mixrank.url = "git+file:///home/ch1n3du/Code/mixrank";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -31,6 +31,19 @@
             ./hosts/ebisu/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.mixrank.nixosModules.dev-machine
+            (
+              { pkgs, ... }:
+              {
+                # Force the system to use the latest Nix version
+                nix.package = pkgs.nixVersions.latest;
+
+                # Enable flakes and new commands
+                nix.settings.experimental-features = [
+                  "nix-command"
+                  "flakes"
+                ];
+              }
+            )
           ];
         };
         nabu = nixpkgs.lib.nixosSystem {
