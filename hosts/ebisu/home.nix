@@ -48,6 +48,7 @@
     pkgs.code-cursor
     pkgs.google-chrome
     pkgs.firefox
+    pkgs.openvpn
 
     # Terminal apps
     kitty
