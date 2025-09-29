@@ -2,14 +2,20 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
+  ];
 
   # btrfs config options + swap
   fileSystems = {
@@ -28,16 +34,16 @@
   swapDevices = [ { device = "/swap/swapfile"; } ];
 
   # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   # Use GRUB for BIOS boot
-  boot.loader.grub.enable = true;
+  # boot.loader.grub.enable = true;
 
   networking.hostName = "nabu"; # Define your hostname.
   # pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # enables .local, NDNS
   services.resolved.enable = true;
@@ -60,12 +66,10 @@
   # Enable the X11 windowing system.
   services.xserver.enable = false;
 
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;
-  
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
@@ -90,8 +94,8 @@
     isNormalUser = true;
     hashedPassword = "$6$mc76ZmffXvKgvxMU$vS2FXwqNuktcg6NyIaaWm//GdqBgGIm0MIj6sYn4P8zguHgmdbjYBfQV0TmyP3s02D2cu7Vl5/vhUqYyYM6TT/";
     shell = pkgs.zsh;
-    extraGroups = [ 
-      "wheel"  # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel" # Enable ‘sudo’ for the user.
       "networkmanager"
     ];
     packages = with pkgs; [
@@ -141,7 +145,7 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-  
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -149,9 +153,9 @@
     helix
     wget
     curl
-    dnsutils  # dig, nslookup
-    pciutils  # lspci
-    usbutils  # lsusb
+    dnsutils # dig, nslookup
+    pciutils # lspci
+    usbutils # lsusb
     inetutils # whois
     file
     xclip
@@ -172,10 +176,10 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-     settings = {
-       PasswordAuthentication = false;
-       PermitRootLogin = "no";
-     };
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
 
   networking.firewall = {
@@ -228,7 +232,7 @@
       max_upload_speed = "1000.0";
       share_ratio_limit = "2.0";
       allow_remote = true;
-      enabled_plugins = ["Label"];
+      enabled_plugins = [ "Label" ];
       # daemon_port = 58846;
     };
   };
@@ -260,17 +264,17 @@
   services.radarr = {
     enable = true;
     openFirewall = true;
-    settings = {};
+    settings = { };
   };
   services.sonarr = {
     enable = true;
     openFirewall = true;
-    settings = {};
+    settings = { };
   };
   services.prowlarr = {
     enable = true;
     openFirewall = true;
-    settings = {};
+    settings = { };
   };
 
   # Copy the NixOS configuration file and link it from the resulting system
@@ -298,4 +302,3 @@
   system.stateVersion = "24.11"; # Did you read the comment?
 
 }
-
