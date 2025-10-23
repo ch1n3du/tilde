@@ -30,7 +30,6 @@
     pkgs.thunderbird
     pkgs.slack
     pkgs.vscodium
-    pkgs.vscode
     pkgs.jetbrains.clion
     pkgs.vlc
     pkgs.todoist-electron
@@ -82,6 +81,7 @@
     sqlite
     claude-code
     pkgs.unixtools.netstat
+    clang-tools
     ## tooling for helix
     ### python
     ruff
@@ -99,7 +99,6 @@
     vscode-langservers-extracted
     ### markdown
     marksman
-
 
     # Drivers
     pkgs.xdg-desktop-portal
@@ -159,8 +158,8 @@
   programs.home-manager.enable = true;
 
   programs.zed-editor = {
-    enable =  true;
-    extensions = ["Python LSP"];
+    enable = true;
+    extensions = [ "Python LSP" ];
     userSettings = {
       auto_update = true;
       helix_mode = true;
@@ -250,15 +249,13 @@
     terminal = "tmux-256color";
     historyLimit = 100000;
 
-    plugins = with pkgs;
-      [
-        tmuxPlugins.better-mouse-mode
-        tmuxPlugins.gruvbox
-        tmuxPlugins.yank
-        tmuxPlugins.vim-tmux-navigator
-      ];
-    extraConfig = ''
-    '';
+    plugins = with pkgs; [
+      tmuxPlugins.better-mouse-mode
+      tmuxPlugins.gruvbox
+      tmuxPlugins.yank
+      tmuxPlugins.vim-tmux-navigator
+    ];
+    extraConfig = '''';
   };
 
   # Enable starship
@@ -277,6 +274,19 @@
       username = {
         show_always = true;
         format = "[$user](bold #c09bf6)@";
+      };
+    };
+  };
+
+  # SSH client configuration
+  programs.ssh = {
+    enable = true;
+    matchBlocks."f15_dev_user" = {
+      hostname = "f15";
+      user = "danielonyeso";
+      extraOptions = {
+        RemoteCommand = "cd mixrank && nix-shell -p tmux helix";
+        RequestTTY = "yes";
       };
     };
   };

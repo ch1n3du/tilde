@@ -1,4 +1,11 @@
-{ config, pkgs, inputs, lib, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
   imports = [
     ./hardware-configuration.nix # Include the results of the hardware scan.
     inputs.home-manager.nixosModules.default
@@ -15,22 +22,59 @@
   boot.loader.systemd-boot.enable = true;
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
-  nix.settings.trusted-users = [ "root" "ch1n3du" ];
+  nix.settings.trusted-users = [
+    "root"
+    "ch1n3du"
+  ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
   services.sshTunnels = {
     enable = true;
-    tunnels = [{
-      name = "nabu";
-      server_hostname = "nabu.local";
-      server_port = 8000;
-      ssh_username = "ch1n3du";
-      local_port = 8000;
-      service_user = "ch1n3du";
-    }];
+    tunnels = [
+      {
+        name = "nabu";
+        server_hostname = "nabu.local";
+        server_port = 8000;
+        ssh_username = "ch1n3du";
+        local_port = 8000;
+        service_user = "ch1n3du";
+      }
+    ];
   };
+
+  # Disable RP05 wakeup source
+  systemd.services.disable-rp05-wakeup = {
+    description = "Disable RP05 ACPI wakeup";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      RemainAfterExit = true;
+      ExecStart = "${pkgs.bash}/bin/bash -c 'echo RP05 > /proc/acpi/wakeup'";
+    };
+  };
+
+  # Enable NVIDIA s2idle power management
+  boot.extraModprobeConfig = ''
+    options nvidia NVreg_EnableS0ixPowerManagement=1
+    options nvidia NVreg_S0ixPowerManagementVideoMemoryThreshold=10000
+  '';
+
+  # Optional: Enable runtime PM for NVIDIA GPU (reduces power consumption)
+  services.udev.extraRules = ''
+    # Enable runtime PM for NVIDIA VGA/3D controller devices on driver bind
+    ACTION=="bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", TEST=="power/control", ATTR{power/control}="auto"
+    ACTION=="bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="auto"
+    
+    # Disable runtime PM for NVIDIA VGA/3D controller devices on driver unbind
+    ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", TEST=="power/control", ATTR{power/control}="on"
+    ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="on"
+  '';
 
   # enable lix overlay
   # nixpkgs.overlays = [ (final: prev: {
@@ -61,7 +105,12 @@
   # networking.dhcpcd.enable = false;
 
   # Use Cloudflare for DNS resolution
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" "1.1.1.1" "1.0.0.1" ];
+  networking.nameservers = [
+    "8.8.8.8"
+    "8.8.4.4"
+    "1.1.1.1"
+    "1.0.0.1"
+  ];
 
   # Set your time zone.
   time.timeZone = "Africa/Lagos";
@@ -82,7 +131,10 @@
   };
 
   # support som extra locales
-  i18n.extraLocales = [ "en_US.UTF-8/UTF-8" "pt_BR.UTF-8/UTF-8" ];
+  i18n.extraLocales = [
+    "en_US.UTF-8/UTF-8"
+    "pt_BR.UTF-8/UTF-8"
+  ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -146,7 +198,11 @@
   users.users.ch1n3du = {
     isNormalUser = true;
     description = "ch1n3du";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       signal-desktop
@@ -157,6 +213,8 @@
       # Apps go here
     ];
   };
+
+  # SSH client configuration moved to home-manager
 
   # Enable firefox.
   # programs.firefox.enable = true;
@@ -191,7 +249,9 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "backup";
-    users = { "ch1n3du" = import ./home.nix; };
+    users = {
+      "ch1n3du" = import ./home.nix;
+    };
   };
 
   # Allow unfree packages
@@ -213,11 +273,12 @@
   ];
 
   environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS =
-      "/home/ch1n3du/.steam/root/compatibilitytools.d";
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ch1n3du/.steam/root/compatibilitytools.d";
   };
 
-  virtualisation.docker = { enable = true; };
+  virtualisation.docker = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
