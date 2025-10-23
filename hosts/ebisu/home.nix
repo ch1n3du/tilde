@@ -30,7 +30,6 @@
     pkgs.thunderbird
     pkgs.slack
     pkgs.vscodium
-    pkgs.jetbrains.clion
     pkgs.vlc
     pkgs.todoist-electron
     pkgs.discord
