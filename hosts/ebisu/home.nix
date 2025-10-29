@@ -280,6 +280,7 @@
   # SSH client configuration
   programs.ssh = {
     enable = true;
+    addKeysToAgent = "yes";
     matchBlocks."f15_dev_user" = {
       hostname = "f15";
       user = "danielonyeso";
@@ -292,6 +293,11 @@
     Match all
         Include config.d/*.conf
     '';
+  };
+
+  # SSH agent service
+  services.ssh-agent = {
+    enable = true;
   };
 
 }
