@@ -288,6 +288,10 @@
         RequestTTY = "yes";
       };
     };
+    extraConfig = ''
+    Match all
+        Include config.d/*.conf
+    '';
   };
 
 }
