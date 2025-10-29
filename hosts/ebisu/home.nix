@@ -281,12 +281,22 @@
   programs.ssh = {
     enable = true;
     addKeysToAgent = "yes";
-    matchBlocks."f15_dev_user" = {
-      hostname = "f15";
-      user = "danielonyeso";
-      extraOptions = {
-        RemoteCommand = "cd mixrank && nix-shell -p tmux helix";
-        RequestTTY = "yes";
+    matchBlocks = {
+      "github.com" = {
+        hostname = "github.com";
+        identityFile = "~/.ssh/ch1n3du-q3-2025-sshkey";
+      };
+      "gitlab.com" = {
+        hostname = "gitlab.com";
+        identityFile = "~/.ssh/ch1n3du-q3-2025-sshkey";
+      };
+      "f15_dev_user" = {
+        hostname = "f15";
+        user = "danielonyeso";
+        extraOptions = {
+          RemoteCommand = "cd mixrank && nix-shell -p tmux helix";
+          RequestTTY = "yes";
+        };
       };
     };
     extraConfig = ''
