@@ -33,7 +33,7 @@
     pkgs.vlc
     pkgs.todoist-electron
     pkgs.discord
-    pkgs.onlyoffice-bin
+    pkgs.onlyoffice-desktopeditors
     pkgs.qbittorrent
     pkgs.gnome-tweaks
     pkgs.spotify
