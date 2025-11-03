@@ -265,7 +265,7 @@
     helix
     gnupg
     mangohud # Overlay for montoring performance
-    protonup
+    protonup-ng
     lutris
     bottles
     gruvbox-gtk-theme

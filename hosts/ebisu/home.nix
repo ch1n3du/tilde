@@ -305,6 +305,13 @@
     '';
   };
 
+   programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    # Optional
+    silent = true;
+  };
+
   # SSH agent service
   services.ssh-agent = {
     enable = true;
