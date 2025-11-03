@@ -208,15 +208,17 @@
   # Enable Git
   programs.git = {
     enable = true;
-    userName = "Daniel Onyesoh";
-    userEmail = "danielonyesoh@gmail.com";
-    aliases = {
-      co = "checkout";
-      st = "status";
-      br = "branch";
-      ci = "commit";
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Daniel Onyesoh";
+        email = "danielonyesoh@gmail.com";
+      };
+      alias = {
+        co = "checkout";
+        st = "status";
+        br = "branch";
+        ci = "commit";
+      };
       init.defaultBranch = "main";
       pull.rebase = true;
       # url = {
@@ -280,8 +282,11 @@
   # SSH client configuration
   programs.ssh = {
     enable = true;
-    addKeysToAgent = "yes";
+    enableDefaultConfig = false;
     matchBlocks = {
+      "*" = {
+        addKeysToAgent = "yes";
+      };
       "github.com" = {
         hostname = "github.com";
         identityFile = "~/.ssh/ch1n3du-q3-2025-sshkey";
