@@ -21,11 +21,18 @@
   # Use system-d boot
   boot.loader.systemd-boot.enable = true;
 
-  # Enable flakes
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ]; # enable flakes
+      keep-outputs = true;
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 1w";
+    };
+  };
 
   nix.settings.trusted-users = [
     "root"
