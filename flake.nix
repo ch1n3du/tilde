@@ -35,7 +35,8 @@
               { pkgs, ... }:
               {
                 # Force the system to use the latest Nix version
-                nix.package = pkgs.nixVersions.latest;
+                # nix.package = pkgs.nixVersions.latest;
+                nix.package = pkgs.nixVersions.nix_2_24;
 
                 # Enable flakes and new commands
                 nix.settings.experimental-features = [
