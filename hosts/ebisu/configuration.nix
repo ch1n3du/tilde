@@ -300,7 +300,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   # disable gnome's SSH agent
-  services.gnome.gcr-ssh-agent.enable = false;
+  # services.gnome.gcr-ssh-agent.enable = false;
 
   networking.firewall = {
     enable = true;
