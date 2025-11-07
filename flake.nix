@@ -2,9 +2,8 @@
   description = "Nixos config flake";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     mixrank.url = "git+ssh://git@gitlab.com/mixrank/mixrank";
-    # mixrank.url = "git+file:///home/ch1n3du/Code/mixrank";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -35,8 +34,8 @@
               { pkgs, ... }:
               {
                 # Force the system to use the latest Nix version
-                # nix.package = pkgs.nixVersions.latest;
-                nix.package = pkgs.nixVersions.nix_2_24;
+                nix.package = pkgs.nixVersions.latest;
+                # nix.package = pkgs.nixVersions.nix_2_24;
                 # Enable flakes and new commands
                 nix.settings.experimental-features = [
                   "nix-command"

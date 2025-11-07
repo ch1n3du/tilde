@@ -40,19 +40,19 @@
   ];
 
   networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
-  services.sshTunnels = {
-    enable = true;
-    tunnels = [
-      {
-        name = "nabu";
-        server_hostname = "nabu.local";
-        server_port = 8000;
-        ssh_username = "ch1n3du";
-        local_port = 8000;
-        service_user = "ch1n3du";
-      }
-    ];
-  };
+  # services.sshTunnels = {
+  #   enable = true;
+  #   tunnels = [
+  #     {
+  #       name = "nabu";
+  #       server_hostname = "nabu.local";
+  #       server_port = 8000;
+  #       ssh_username = "ch1n3du";
+  #       local_port = 8000;
+  #       service_user = "ch1n3du";
+  #     }
+  #   ];
+  # };
 
   # Disable RP05 wakeup source
   systemd.services.disable-rp05-wakeup = {
@@ -150,8 +150,8 @@
   # services.xserver.displayManager.gdm.wayland = false;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -307,7 +307,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
   # disable gnome's SSH agent
-  # services.gnome.gcr-ssh-agent.enable = false;
+  services.gnome.gcr-ssh-agent.enable = false;
 
   networking.firewall = {
     enable = true;
