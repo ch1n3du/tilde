@@ -49,6 +49,7 @@
     pkgs.google-chrome
     pkgs.firefox
     pkgs.openvpn
+    pkgs.telegram-desktop
 
     # Terminal apps
     kitty
@@ -305,12 +306,12 @@
       };
     };
     extraConfig = ''
-    Match all
-        Include config.d/*.conf
+      Match all
+          Include config.d/*.conf
     '';
   };
 
-   programs.direnv = {
+  programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
     # Optional
