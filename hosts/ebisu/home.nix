@@ -33,16 +33,11 @@
     pkgs.vlc
     pkgs.todoist-electron
     pkgs.discord
-    pkgs.onlyoffice-desktopeditors
     pkgs.qbittorrent
     pkgs.gnome-tweaks
     pkgs.spotify
     pkgs.arduino-ide
     pkgs.foliate
-    pkgs.blender
-    pkgs.zoom-us
-    pkgs.bruno
-    pkgs.bruno-cli
     pkgs.rustup
     pkgs.remnote
     pkgs.code-cursor
