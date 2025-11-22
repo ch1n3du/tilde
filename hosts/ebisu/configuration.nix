@@ -83,6 +83,7 @@
     ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="on"
   '';
 
+  # Enable X11
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
@@ -98,18 +99,6 @@
   };
 
   console.useXkbConfig = true;
-
-  # enable lix overlay
-  # nixpkgs.overlays = [ (final: prev: {
-  #   inherit (final.lixPackageSets.stable)
-  #     nixpkgs-review
-  #     nix-direnv
-  #     nix-eval-jobs
-  #     nix-fast-build
-  #     colmena;
-  # }) ];
-
-  # nix.package = lib.mkForce pkgs.lixPackageSets.stable.lix;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -158,9 +147,6 @@
     "en_US.UTF-8/UTF-8"
     "pt_BR.UTF-8/UTF-8"
   ];
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
   # Disable wayland
   # services.xserver.displayManager.gdm.wayland = false;
