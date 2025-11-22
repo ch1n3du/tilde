@@ -83,6 +83,22 @@
     ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="on"
   '';
 
+  services.xserver = {
+    enable = true;
+    desktopManager.gnome.enable = true;
+  
+    xkb = {
+      layout = "us";
+      extraConfig = ''
+        xkb_symbols "disable_right_arrow" {
+          key <RGHT> { [ NoSymbol, NoSymbol ] };
+        };
+      '';
+    };
+  };
+
+  console.useXkbConfig = true;
+
   # enable lix overlay
   # nixpkgs.overlays = [ (final: prev: {
   #   inherit (final.lixPackageSets.stable)
