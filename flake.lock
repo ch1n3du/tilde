@@ -287,11 +287,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1764736867,
-        "narHash": "sha256-Q/+03EAvtzCbhGXv7yLsYh+pXIzLUgibpQKxo5CI2bk=",
+        "lastModified": 1764780230,
+        "narHash": "sha256-/hLZoLxzr2jwMStuUofB6PZm2eE3kpw91WObm66vPUs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "bcc7afa1d873ead5932fbb4d42f1916a9627c084",
+        "rev": "af324afa72de6d23162f0cdcb0716afe6e626683",
         "type": "github"
       },
       "original": {
@@ -311,11 +311,11 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1764743551,
-        "narHash": "sha256-K6Xjm82wnDXBiRQPH3x25nhSp3WI7jTMDZPgReEdYH0=",
+        "lastModified": 1764778897,
+        "narHash": "sha256-J+DB+0mebCzLxN+9d550u6tGMWAk9w0lzXw68tOzzvU=",
         "ref": "refs/heads/master",
-        "rev": "c87dd0c456f545bfe2ec78cf7a91eb5d87b7f4bf",
-        "revCount": 81110,
+        "rev": "63d7e4c7b226d8df943d13b9e8d53bb830d5fd5d",
+        "revCount": 81127,
         "type": "git",
         "url": "ssh://git@gitlab.com/mixrank/mixrank"
       },
