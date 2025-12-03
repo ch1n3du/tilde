@@ -22,6 +22,7 @@
   boot.loader.systemd-boot.enable = true;
 
   nix = {
+    package = lib.mkForce pkgs.nixVersions.latest;
     settings = {
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ]; # enable flakes
