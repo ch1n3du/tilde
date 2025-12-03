@@ -44,7 +44,6 @@
     pkgs.google-chrome
     pkgs.firefox
     pkgs.openvpn
-    pkgs.telegram-desktop
 
     # Terminal apps
     kitty
@@ -94,6 +93,9 @@
     vscode-langservers-extracted
     ### markdown
     marksman
+    ### clojure
+    clojure
+    clojure-lsp
 
     # Drivers
     pkgs.xdg-desktop-portal

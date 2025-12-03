@@ -90,15 +90,8 @@
   
     xkb = {
       layout = "us";
-      extraConfig = ''
-        xkb_symbols "disable_right_arrow" {
-          key <RGHT> { [ NoSymbol, NoSymbol ] };
-        };
-      '';
     };
   };
-
-  console.useXkbConfig = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -154,12 +147,6 @@
   # Enable the GNOME Desktop Environment.
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
