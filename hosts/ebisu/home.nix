@@ -25,7 +25,7 @@
   # environment.
   home.packages = with pkgs; [
     # GUI Apps
-    pkgs.zotero_7
+    pkgs.zotero
     pkgs.obsidian
     pkgs.thunderbird
     pkgs.slack
@@ -45,6 +45,7 @@
     pkgs.firefox
     pkgs.openvpn
     pkgs.telegram-desktop
+    pkgs.notion-app
 
     # Terminal apps
     kitty
@@ -201,6 +202,9 @@
       ll = "ls -l";
       ls = "eza";
       nabu = "kitten ssh ch1n3du@nabu.local";
+      open-monthly-log = ''
+        cd ~/log && hx "monthly/$(date +%Y-%m).md"   
+      '';
     };
   };
 
