@@ -7,53 +7,22 @@
 }:
 {
   imports = [
-    ./hardware-configuration.nix # Include the results of the hardware scan.
-    inputs.home-manager.nixosModules.default
+    ./hardware-configuration.nix
+    ../../modules/nixos/common.nix
     ../../modules/nixos/main-user.nix
     ../../modules/nixos/s3nixcache-mixrank.nix
     ../../modules/nixos/ssh-tunnels.nix
   ];
 
-  # Test 'main-user' tutorial module options
-  # main-user.enable = true;
-  # main-user.userName = "ch1n3du2";
+  tilde.system.hostname = "ch1n3du-ebisu-nixos";
+  tilde.system.stateVersion = "24.05";
 
-  # Use system-d boot
-  boot.loader.systemd-boot.enable = true;
-
-  nix = {
-    # package = lib.mkForce pkgs.nixVersions.nix_2_28;
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ]; # enable flakes
-      keep-outputs = true;
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 1w";
-    };
-  };
-
+  # Extra nix settings (on top of common.nix)
   nix.settings.trusted-users = [
     "root"
     "ch1n3du"
   ];
-
-  networking.hostName = "ch1n3du-ebisu-nixos"; # Define your hostname.
-  # services.sshTunnels = {
-  #   enable = true;
-  #   tunnels = [
-  #     {
-  #       name = "nabu";
-  #       server_hostname = "nabu.local";
-  #       server_port = 8000;
-  #       ssh_username = "ch1n3du";
-  #       local_port = 8000;
-  #       service_user = "ch1n3du";
-  #     }
-  #   ];
-  # };
+  nix.settings.keep-outputs = true;
 
   # Disable RP05 wakeup source
   systemd.services.disable-rp05-wakeup = {
@@ -73,44 +42,24 @@
     options nvidia NVreg_S0ixPowerManagementVideoMemoryThreshold=10000
   '';
 
-  # Optional: Enable runtime PM for NVIDIA GPU (reduces power consumption)
+  # Runtime PM for NVIDIA GPU
   services.udev.extraRules = ''
     # Enable runtime PM for NVIDIA VGA/3D controller devices on driver bind
     ACTION=="bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", TEST=="power/control", ATTR{power/control}="auto"
     ACTION=="bind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="auto"
-    
+
     # Disable runtime PM for NVIDIA VGA/3D controller devices on driver unbind
     ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030000", TEST=="power/control", ATTR{power/control}="on"
     ACTION=="unbind", SUBSYSTEM=="pci", ATTR{vendor}=="0x10de", ATTR{class}=="0x030200", TEST=="power/control", ATTR{power/control}="on"
   '';
 
-  # Enable X11
+  # X11
   services.xserver = {
     enable = true;
-    desktopManager.gnome.enable = true;
-  
-    xkb = {
-      layout = "us";
-    };
+    xkb.layout = "us";
   };
 
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Disable NetworkManager's internal DNS resolution
-  # networking.networkmanager.dns = "none";
-
-  # These options are unnecessary when managing DNS ourselves
-  # networking.useDHCP = false;
-  # networking.dhcpcd.enable = false;
-
-  # Use Cloudflare for DNS resolution
+  # DNS
   networking.nameservers = [
     "8.8.8.8"
     "8.8.4.4"
@@ -118,12 +67,8 @@
     "1.0.0.1"
   ];
 
-  # Set your time zone.
-  time.timeZone = "Africa/Lagos";
-
-  # Select internationalisation properties.
+  # Locale
   i18n.defaultLocale = "en_NG";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_NG";
     LC_IDENTIFICATION = "en_NG";
@@ -135,24 +80,19 @@
     LC_TELEPHONE = "en_NG";
     LC_TIME = "en_NG";
   };
-
-  # support som extra locales
   i18n.extraLocales = [
     "en_US.UTF-8/UTF-8"
     "pt_BR.UTF-8/UTF-8"
   ];
 
-  # Disable wayland
-  # services.xserver.displayManager.gdm.wayland = false;
-
-  # Enable the GNOME Desktop Environment.
+  # Display / Desktop
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
 
-  # Enable CUPS to print documents.
+  # Printing
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+  # Audio
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -160,22 +100,15 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
   };
-  services.resolved.enable = true;
 
-  # Enable graphics
+  # Graphics
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
 
-  # Enable Nvidia settings
+  # NVIDIA
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
     modesetting.enable = true;
@@ -188,41 +121,46 @@
     };
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # User (additional groups/packages on top of common.nix)
   users.users.ch1n3du = {
-    isNormalUser = true;
-    description = "ch1n3du";
     extraGroups = [
       "networkmanager"
       "wheel"
       "docker"
     ];
-    shell = pkgs.zsh;
     packages = with pkgs; [
       signal-desktop
       clang
       rustup
       postgresql
-
-      # Apps go here
     ];
   };
 
-  # SSH client configuration moved to home-manager
+  # Disable GNOME's SSH agent (using home-manager ssh-agent instead)
+  services.gnome.gcr-ssh-agent.enable = false;
 
-  # Enable firefox.
-  # programs.firefox.enable = true;
-  programs.zsh.enable = true;
+  # CUDA support
+  nixpkgs.config.cudaSupport = true;
 
-  # Enable steam
+  # Extra system packages
+  environment.systemPackages = with pkgs; [
+    gnupg
+    mangohud
+    protonup-ng
+    lutris
+    bottles
+    gruvbox-gtk-theme
+  ];
+
+  # Steam
   programs.steam.enable = true;
   programs.steam.gamescopeSession.enable = true;
   programs.gamemode.enable = true;
+  environment.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ch1n3du/.steam/root/compatibilitytools.d";
+  };
 
-  # Enable dynamic linking
+  # Dynamic linking
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
@@ -232,87 +170,25 @@
       xorg.libXi
       libxkbcommon
       xorg.libxcb
-      pkgs.vulkan-loader
-      pkgs.glfw
-      pkgs.vips
-      dive # look into docker image layers
-      podman-tui # status of containers in the terminal
-      docker-compose # start group of containers for dev
-      podman-compose # start group of containers for dev
+      vulkan-loader
+      glfw
+      vips
+      dive
+      podman-tui
+      docker-compose
+      podman-compose
     ];
   };
 
-  # Setup home-manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "backup";
-    users = {
-      "ch1n3du" = import ./home.nix;
-    };
-  };
+  # Docker
+  virtualisation.docker.enable = true;
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-  # Enable CUDA support
-  nixpkgs.config.cudaSupport = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    helix
-    gnupg
-    mangohud # Overlay for montoring performance
-    protonup-ng
-    lutris
-    bottles
-    gruvbox-gtk-theme
-    wget
-  ];
-
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/ch1n3du/.steam/root/compatibilitytools.d";
-  };
-
-  virtualisation.docker = {
-    enable = true;
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable PostgreSQL
+  # PostgreSQL
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql_16;
-    # dataDir = "/data/postgresql";
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  # disable gnome's SSH agent
-  services.gnome.gcr-ssh-agent.enable = false;
-
-  networking.firewall = {
-    enable = true;
-
-    # Open ports in the firewall.
-    # allowedTCPPorts = [ ... ];
-    allowedUDPPorts = [ 5353 ];
-  };
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.05"; # Did you read the comment?
-
+  # Home Manager
+  home-manager.users."ch1n3du" = import ./home.nix;
 }

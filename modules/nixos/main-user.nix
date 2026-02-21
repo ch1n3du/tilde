@@ -1,14 +1,18 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
-let 
+let
   # An alias for fields in the `configuration.nix` that
   # start with 'main-user'
   cfg = config.main-user;
 in
 {
   options.main-user = {
-    enable 
-      = lib.mkEnableOption "enable user module";
+    enable = lib.mkEnableOption "enable user module";
 
     userName = lib.mkOption {
       default = "mainuser";

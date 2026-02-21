@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
@@ -9,9 +14,7 @@ let
   mkTunnelService = tunnel: {
     name = "ssh-tunnel-${tunnel.name}";
     value = {
-      description = "SSH Tunnel ${tunnel.name} (${tunnel.server_hostname}:${
-          toString tunnel.server_port
-        } -> localhost:${toString tunnel.local_port})";
+      description = "SSH Tunnel ${tunnel.name} (${tunnel.server_hostname}:${toString tunnel.server_port} -> localhost:${toString tunnel.local_port})";
       after = [ "network.target" ];
       wantedBy = [ "multi-user.target" ];
 
@@ -24,13 +27,8 @@ let
             -o ExitOnForwardFailure=yes \
             -o StrictHostKeyChecking=accept-new \
             -o ControlMaster=no \
-            ${
-              optionalString (tunnel.identity_file != null)
-              "-i ${tunnel.identity_file}"
-            } \
-            -L 127.0.0.1:${toString tunnel.local_port}:localhost:${
-              toString tunnel.server_port
-            } \
+            ${optionalString (tunnel.identity_file != null) "-i ${tunnel.identity_file}"} \
+            -L 127.0.0.1:${toString tunnel.local_port}:localhost:${toString tunnel.server_port} \
             ${tunnel.ssh_username}@${tunnel.server_hostname}
         '';
         Restart = "always";
@@ -88,14 +86,14 @@ let
       identity_file = mkOption {
         type = types.nullOr types.path;
         default = null;
-        description =
-          "Path to SSH identity file (private key) for authentication";
+        description = "Path to SSH identity file (private key) for authentication";
         example = "/home/ch1n3du/.ssh/ch1n3du-sshkey";
       };
     };
   };
 
-in {
+in
+{
   options.services.sshTunnels = {
     enable = mkEnableOption "SSH tunnel services";
 
@@ -139,16 +137,19 @@ in {
 
   config = mkIf cfg.enable {
     # validate that tunnel names are unique
-    assertions = [{
-      assertion = let
-        names = map (t: t.name) cfg.tunnels;
-        uniqueNames = unique names;
-      in length names == length uniqueNames;
-      message = "SSH tunnel names must be unique. Duplicate names found: ${
-          toString (subtractLists (unique (map (t: t.name) cfg.tunnels))
-            (map (t: t.name) cfg.tunnels))
+    assertions = [
+      {
+        assertion =
+          let
+            names = map (t: t.name) cfg.tunnels;
+            uniqueNames = unique names;
+          in
+          length names == length uniqueNames;
+        message = "SSH tunnel names must be unique. Duplicate names found: ${
+          toString (subtractLists (unique (map (t: t.name) cfg.tunnels)) (map (t: t.name) cfg.tunnels))
         }";
-    }];
+      }
+    ];
 
     systemd.services = listToAttrs (map mkTunnelService cfg.tunnels);
 
