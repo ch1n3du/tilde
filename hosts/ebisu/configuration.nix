@@ -164,12 +164,11 @@
   programs.nix-ld = {
     enable = true;
     libraries = with pkgs; [
-      xorg.libX11
-      xorg.libXcursor
-      xorg.libxcb
-      xorg.libXi
+      libx11
+      libxcursor
+      libxcb
+      libxi
       libxkbcommon
-      xorg.libxcb
       vulkan-loader
       glfw
       vips
