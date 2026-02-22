@@ -13,7 +13,7 @@
   outputs =
     {
       self,
-      mixrank,
+      # mixrank,
       nixpkgs,
       ...
     }@inputs:
@@ -37,6 +37,15 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./hosts/nabu/configuration.nix
+            inputs.home-manager.nixosModules.default
+            inputs.mixrank.nixosModules.dev-machine
+          ];
+        };
+        ctesiphon = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            ./hosts/ctesiphon/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.mixrank.nixosModules.dev-machine
           ];

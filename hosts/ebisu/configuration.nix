@@ -9,7 +9,6 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/common.nix
-    ../../modules/nixos/main-user.nix
     ../../modules/nixos/s3nixcache-mixrank.nix
     ../../modules/nixos/ssh-tunnels.nix
   ];

@@ -10,6 +10,7 @@
   imports = [
     ./hardware-configuration.nix
     ../../modules/nixos/common.nix
+    ../../modules/nixos/s3nixcache-mixrank.nix
   ];
 
   tilde.system.hostname = "nabu";
