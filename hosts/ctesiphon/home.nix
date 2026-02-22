@@ -24,7 +24,8 @@
     vscode
     zed-editor
     claude-code
-    todoist
+    todoist-electron
+    obsidian
     remnote
     discord
     telegram-desktop
@@ -67,10 +68,11 @@
         hostname = "gitlab.com";
         identityFile = "~/.ssh/id_ed25519";
       };
-      extraConfig = ''
-        Match all
-            Include config.d/*.conf
-      '';
+    };
+    extraConfig = ''
+      Match all
+          Include config.d/*.conf
+    '';
   };
 
   # SSH agent service
