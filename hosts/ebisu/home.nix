@@ -7,13 +7,7 @@
   tilde.tmux.enable = true;
   tilde.starship.enable = true;
   tilde.atuin.enable = true;
-  tilde.zsh = {
-    enable = true;
-    extraAliases = {
-      nabu = "kitten ssh ch1n3du@nabu.local";
-      open-monthly-log = ''cd ~/log && hx "monthly/$(date +%Y-%m).md"'';
-    };
-  };
+  tilde.zsh.enable = true;
   tilde.git = {
     enable = true;
     email = "danielonyesoh@gmail.com";
