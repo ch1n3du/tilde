@@ -13,7 +13,8 @@ in
     enable = lib.mkEnableOption "git";
     email = lib.mkOption {
       type = lib.types.str;
-      description = "Email address for git commits (no default — must be set per host)";
+      default = "me@ch1n3du.net";
+      description = "Email address for git commits";
     };
   };
 
@@ -22,7 +23,7 @@ in
       enable = true;
       settings = {
         user = {
-          name = "Daniel Onyesoh";
+          name = "Daniel Chinedu Onyesoh";
           email = cfg.email;
         };
         alias = {

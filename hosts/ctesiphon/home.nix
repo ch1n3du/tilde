@@ -10,7 +10,7 @@
   tilde.zsh.enable = true;
   tilde.git = {
     enable = true;
-    email = "danielonyesoh@gmail.com";
+    email = "danielonyesoh@mixrank.com";
   };
   tilde.helix = {
     enable = true;
@@ -27,9 +27,8 @@
     todoist-electron
     obsidian
     remnote
-    discord
-    telegram-desktop
     slack
+    zotero
 
     # Dev tools
     ripgrep
