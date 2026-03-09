@@ -42,6 +42,10 @@ in
         nabu = "kitten ssh ch1n3du@nabu.local";
         ebisu = "kitten ssh ch1n3du@ebisu.local";
         ctesiphon = "kitten ssh ch1n3du@ctesiphon.local";
+        update-system = ''
+          nix flake update --file ~/Code/tilde    
+          nixos-rebuild --flake ~/Code/tilde switch --sudo
+        '';
       }
       // cfg.extraAliases;
     };

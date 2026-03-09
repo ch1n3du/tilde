@@ -29,6 +29,7 @@
     remnote
     slack
     zotero
+    burpsuite
 
     # Dev tools
     ripgrep
