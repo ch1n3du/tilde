@@ -40,6 +40,7 @@
     uv
     python313
     git
+    elan
 
     # LSPs
     ruff
