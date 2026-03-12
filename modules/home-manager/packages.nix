@@ -21,7 +21,7 @@ in
       [
         # Terminal apps
         kitty
-        neofetch
+        fastfetch
         bat
         htop
         zoxide
