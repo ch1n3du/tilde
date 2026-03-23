@@ -39,11 +39,12 @@ in
         ll = "ls -l";
         ls = "eza";
         open-monthly-log = ''FILE=~/log/monthly/$(date +%Y-%m).md; [ -f "$FILE" ] || sed "s/YYYY-MM/$(date +%Y-%m)/" ~/log/monthly/template.md > "$FILE"; cd ~/log && hx "$FILE"'';
+        sync-log = "git commit -a -m '...' && git push";
         nabu = "kitten ssh ch1n3du@nabu.local";
         ebisu = "kitten ssh ch1n3du@ebisu.local";
         ctesiphon = "kitten ssh ch1n3du@ctesiphon.local";
         update-system = ''
-          nix flake update --file ~/Code/tilde    
+          nix flake update ~/Code/tilde    
           nixos-rebuild --flake ~/Code/tilde switch --sudo
         '';
       }
