@@ -20,6 +20,7 @@
 
   tilde.packages.extraPackages = with pkgs; [
     # GUI Apps
+    discord
     zotero
     obsidian
     thunderbird
@@ -49,7 +50,7 @@
     nodejs_22
     uv
     qemu
-    python313
+    python315
     yarn
     hugo
     ripgrep
