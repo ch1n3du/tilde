@@ -20,6 +20,7 @@
 
   tilde.packages.extraPackages = with pkgs; [
     # GUI Apps
+    discord
     firefox
     vscode
     zed-editor
