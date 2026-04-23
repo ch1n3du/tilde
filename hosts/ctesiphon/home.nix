@@ -31,6 +31,7 @@
     slack
     zotero
     burpsuite
+    google-chrome
 
     # Dev tools
     ripgrep
