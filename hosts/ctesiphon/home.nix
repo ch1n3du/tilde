@@ -32,6 +32,7 @@
     zotero
     burpsuite
     google-chrome
+    foliate
 
     # Dev tools
     ripgrep
