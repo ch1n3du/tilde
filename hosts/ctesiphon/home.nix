@@ -33,6 +33,7 @@
     burpsuite
     google-chrome
     foliate
+    telegram-desktop
 
     # Dev tools
     ripgrep
