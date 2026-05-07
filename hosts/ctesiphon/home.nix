@@ -45,6 +45,8 @@
     git
     jujutsu
     elan
+    sox
+    codex    
 
     # LSPs
     ruff
