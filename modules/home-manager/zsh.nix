@@ -33,6 +33,19 @@ in
         ];
       };
 
+      plugins = [
+        {
+          # from https://github.com/direnv/direnv/issues/443#issuecomment-2380714786
+          name = "zsh-completion-sync";
+          src = pkgs.fetchFromGitHub {
+            owner = "BronzeDeer";
+            repo = "zsh-completion-sync";
+            rev = "7f0a68e5fa8081554161d0d330d7f2a52683705e";
+            hash = "sha256-GMZ0W8d0Qd5EhrwA/SkeOqDzoUchxDermcTR0iKYP8M=";
+          };
+        }
+      ];
+
       shellAliases = {
         cd = "z";
         cdl = "z -l";
