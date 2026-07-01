@@ -63,6 +63,12 @@ in
 
     # Timezone
     time.timeZone = "Africa/Lagos";
+    # Export TZ explicitly. NixOS points /etc/localtime at /etc/zoneinfo/<zone>,
+    # but Electron's bundled Chromium ICU only recognises the standard
+    # /usr/share/zoneinfo prefix, so it resolves the zone as "Etc/Unknown".
+    # That makes date libraries (e.g. Todoist's) throw "Invalid zone ID" and
+    # hang the app on load. Setting TZ bypasses path-based detection.
+    environment.sessionVariables.TZ = config.time.timeZone;
 
     # User
     users.users.ch1n3du = {

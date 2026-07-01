@@ -47,6 +47,7 @@
     elan
     sox
     codex    
+    ghostty
 
     # LSPs
     ruff
