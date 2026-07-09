@@ -4,6 +4,8 @@
   imports = [ ../../modules/home-manager ];
 
   tilde.kitty.enable = true;
+  tilde.ghostty.enable = true;
+  tilde.switcheroo.enable = true;
   tilde.tmux.enable = true;
   tilde.starship.enable = true;
   tilde.atuin.enable = true;
@@ -46,8 +48,9 @@
     jujutsu
     elan
     sox
-    codex    
-    ghostty
+    codex
+    android-studio
+    android-studio-tools
 
     # LSPs
     ruff

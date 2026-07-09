@@ -8,6 +8,8 @@
 {
   imports = [
     ./kitty.nix
+    ./ghostty.nix
+    ./switcheroo.nix
     ./tmux.nix
     ./starship.nix
     ./atuin.nix
