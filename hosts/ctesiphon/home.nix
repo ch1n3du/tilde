@@ -35,6 +35,7 @@
     burpsuite
     google-chrome
     foliate
+    spotify
 
     # Dev tools
     ripgrep
