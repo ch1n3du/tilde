@@ -36,6 +36,7 @@
     google-chrome
     foliate
     spotify
+    syncplay
 
     # Dev tools
     ripgrep
