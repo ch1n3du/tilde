@@ -53,7 +53,6 @@
     codex
     android-studio
     android-studio-tools
-    tailscale
 
     # LSPs
     ruff

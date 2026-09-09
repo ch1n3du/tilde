@@ -37,6 +37,8 @@
     enable = true;
     xkb.layout = "us";
   };
+  # tailscale
+  services.tailscale.enable = true;
 
   # DNS
   networking.nameservers = [
