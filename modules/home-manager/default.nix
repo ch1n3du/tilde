@@ -10,6 +10,7 @@
     ./kitty.nix
     ./ghostty.nix
     ./switcheroo.nix
+    ./compose-key.nix
     ./tmux.nix
     ./starship.nix
     ./atuin.nix

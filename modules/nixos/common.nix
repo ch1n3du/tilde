@@ -79,6 +79,11 @@ in
     # Shell
     programs.zsh.enable = true;
 
+    # Keyboard: Right Alt is the Compose key (e.g. RAlt ' i -> í).
+    # terminate:ctrl_alt_bksp is carried over from the NixOS default, which a
+    # definition here would otherwise replace.
+    services.xserver.xkb.options = "terminate:ctrl_alt_bksp,compose:ralt";
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
