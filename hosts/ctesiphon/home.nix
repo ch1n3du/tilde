@@ -37,6 +37,7 @@
     foliate
     spotify
     syncplay
+    prismlauncher
 
     # Dev tools
     ripgrep
