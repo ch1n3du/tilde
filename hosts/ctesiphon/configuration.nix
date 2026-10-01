@@ -40,6 +40,10 @@
 
   # tailscale
   services.tailscale.enable = true;
+
+  # Route public internet traffic around the ISP's broken path to Vercel.
+  services.cloudflare-warp.enable = true;
+
   services.resolved.enable = true;
 
   # DNS

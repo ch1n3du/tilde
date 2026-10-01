@@ -54,6 +54,7 @@
     codex
     android-studio
     android-studio-tools
+    vastai
 
     # LSPs
     ruff
