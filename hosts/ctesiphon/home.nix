@@ -55,6 +55,7 @@
     android-studio
     android-studio-tools
     vastai
+    modal
 
     # LSPs
     ruff
