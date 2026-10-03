@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pico-pomo = {
+      url = "github:ch1n3du/pico-pomo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =

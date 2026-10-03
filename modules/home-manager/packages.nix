@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   lib,
   ...
 }:
@@ -33,6 +34,7 @@ in
         eza
         go
         rustup
+        inputs.pico-pomo.packages.${pkgs.stdenv.hostPlatform.system}.default
 
         # Fonts
         inter

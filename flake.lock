@@ -667,6 +667,26 @@
         "type": "gitlab"
       }
     },
+    "pico-pomo": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791051863,
+        "narHash": "sha256-FTcS/ltR9udttyqAwctcTRMBxcORcyvyI9LpvOni4kc=",
+        "owner": "ch1n3du",
+        "repo": "pico-pomo",
+        "rev": "66112d2ac83144f2cd8a26ea42cc10162178bb9a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ch1n3du",
+        "repo": "pico-pomo",
+        "type": "github"
+      }
+    },
     "registry-crates-io": {
       "flake": false,
       "locked": {
@@ -703,7 +723,8 @@
       "inputs": {
         "home-manager": "home-manager",
         "mixrank": "mixrank",
-        "nixpkgs": "nixpkgs_6"
+        "nixpkgs": "nixpkgs_6",
+        "pico-pomo": "pico-pomo"
       }
     },
     "rust-overlay": {
