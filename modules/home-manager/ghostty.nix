@@ -20,6 +20,7 @@ in
         font-family = "MonaspiceNe Nerd Font";
         font-size = 14;
         background-opacity = 1.0;
+        bell-features = "audio";
       };
     };
   };

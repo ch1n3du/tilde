@@ -743,11 +743,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791051863,
-        "narHash": "sha256-FTcS/ltR9udttyqAwctcTRMBxcORcyvyI9LpvOni4kc=",
+        "lastModified": 1791207474,
+        "narHash": "sha256-2I7N6F1WpOxz9kCiS6s16xXDe8siZMms79NwazJhb9A=",
         "owner": "ch1n3du",
         "repo": "pico-pomo",
-        "rev": "66112d2ac83144f2cd8a26ea42cc10162178bb9a",
+        "rev": "7bf9f1496763db2ebe6e14ff2d96a0595ff7c07e",
         "type": "github"
       },
       "original": {
