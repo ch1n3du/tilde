@@ -12,6 +12,7 @@
       url = "github:ch1n3du/pico-pomo";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    herdr-nix.url = "github:herdrdev/herdr-nix";
   };
 
   outputs =

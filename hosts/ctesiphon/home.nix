@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [ ../../modules/home-manager ];
@@ -56,6 +61,7 @@
     android-studio-tools
     vastai
     modal
+    inputs.herdr-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # LSPs
     ruff
