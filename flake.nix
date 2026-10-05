@@ -13,6 +13,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     herdr-nix.url = "github:herdrdev/herdr-nix";
+    nixpkgs-zotero.url = "github:NixOS/nixpkgs/20b1ddd1aa5ace70c9468305030aa4f9ef79671b";
   };
 
   outputs =

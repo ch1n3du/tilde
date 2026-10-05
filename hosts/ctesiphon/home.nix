@@ -5,6 +5,15 @@
   ...
 }:
 
+let
+  # Zotero 10.0.4 in nixpkgs a7868a7 expects Firefox ESR 140.15 but is
+  # packaged with ESR 153. Keep Zotero on the last known-good nixpkgs until
+  # that mismatch is fixed upstream.
+  zoteroPinned =
+    builtins.addErrorContext
+      "while evaluating Zotero pinned to nixpkgs 20b1ddd due to the Firefox ESR 140/153 mismatch"
+      (inputs.nixpkgs-zotero.legacyPackages.${pkgs.stdenv.hostPlatform.system}.zotero);
+in
 {
   imports = [ ../../modules/home-manager ];
 
@@ -36,7 +45,7 @@
     obsidian
     remnote
     slack
-    zotero
+    zoteroPinned
     burpsuite
     google-chrome
     foliate
