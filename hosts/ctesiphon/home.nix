@@ -52,6 +52,7 @@ in
     spotify
     syncplay
     prismlauncher
+    spotifast
 
     # Dev tools
     ripgrep
