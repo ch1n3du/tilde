@@ -106,7 +106,7 @@ in
         user = "root";
         identityFile = "~/.ssh/for_vastai";
         identitiesOnly = true;
-        forwardAgent = "yes";
+        forwardAgent = true;
         localForwards = [
           {
             bind.port = 8080;

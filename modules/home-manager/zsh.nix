@@ -19,6 +19,11 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs.fzf = {
+      enable = true;
+      enableZshIntegration = false;
+    };
+
     programs.zsh = {
       enable = true;
       enableCompletion = true;
@@ -43,6 +48,11 @@ in
             rev = "7f0a68e5fa8081554161d0d330d7f2a52683705e";
             hash = "sha256-GMZ0W8d0Qd5EhrwA/SkeOqDzoUchxDermcTR0iKYP8M=";
           };
+        }
+        {
+          name = "fzf-tab";
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
         }
       ];
 
