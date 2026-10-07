@@ -100,6 +100,20 @@ in
         hostname = "gitlab.com";
         identityFile = "~/.ssh/id_ed25519";
       };
+      "arena" = {
+        hostname = "77.104.167.149";
+        port = 44751;
+        user = "root";
+        identityFile = "~/.ssh/for_vastai";
+        identitiesOnly = true;
+        localForwards = [
+          {
+            bind.port = 8080;
+            host.address = "localhost";
+            host.port = 8080;
+          }
+        ];
+      };
     };
     extraConfig = ''
       Match all
