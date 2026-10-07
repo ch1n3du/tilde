@@ -21,6 +21,7 @@ in
         font-size = 14;
         background-opacity = 1.0;
         bell-features = "audio";
+        shell-integration-features = "ssh-env,ssh-terminfo";
       };
     };
   };
