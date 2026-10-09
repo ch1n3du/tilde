@@ -59,7 +59,7 @@ in
     gnumake
     gcc
     tree
-    nodejs_22
+    nodejs
     uv
     python313
     git
