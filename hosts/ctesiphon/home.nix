@@ -101,8 +101,8 @@ in
         identityFile = "~/.ssh/id_ed25519";
       };
       "arena" = {
-        hostname = "77.104.167.149";
-        port = 44751;
+        hostname = "50.99.16.119";
+        port = 56955;
         user = "root";
         identityFile = "~/.ssh/for_vastai";
         identitiesOnly = true;
