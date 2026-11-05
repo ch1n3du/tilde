@@ -23,7 +23,11 @@ in
 
   config = {
     # Boot
-    boot.loader.systemd-boot.enable = true;
+    boot.loader.systemd-boot = {
+      enable = true;
+      # Keep /boot (512M ESP) from filling up with old kernels/initrds.
+      configurationLimit = 10;
+    };
 
     # Nix settings
     nix = {
