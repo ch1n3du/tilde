@@ -18,6 +18,7 @@
     ./git.nix
     ./helix.nix
     ./packages.nix
+    ./vast
   ];
 
   home.username = "ch1n3du";

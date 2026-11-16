@@ -23,6 +23,7 @@ in
   tilde.tmux.enable = true;
   tilde.starship.enable = true;
   tilde.atuin.enable = true;
+  tilde.vast.enable = true;
   tilde.zsh.enable = true;
   tilde.git = {
     enable = true;
@@ -69,7 +70,6 @@ in
     codex
     android-studio
     android-studio-tools
-    vastai
     modal
     inputs.herdr-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
 
@@ -99,21 +99,6 @@ in
       "gitlab.com" = {
         hostname = "gitlab.com";
         identityFile = "~/.ssh/id_ed25519";
-      };
-      "arena" = {
-        hostname = "50.99.16.119";
-        port = 56955;
-        user = "root";
-        identityFile = "~/.ssh/for_vastai";
-        identitiesOnly = true;
-        forwardAgent = true;
-        localForwards = [
-          {
-            bind.port = 8080;
-            host.address = "localhost";
-            host.port = 8080;
-          }
-        ];
       };
     };
     extraConfig = ''

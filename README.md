@@ -9,3 +9,5 @@
     + [`modules/home-manager`](./modules/home-manager/) — home-manager modules
     + [`modules/nixos`](./modules/nixos/) — NixOS modules
 - [`configs`](./configs/) — dedicated application-specific config files
+- [`docs`](./docs/) — notes on workflows built on this config
+    + [`docs/vast.md`](./docs/vast.md) — vast.ai SSH aliases and per-instance deploy keys (`vastutils`)
