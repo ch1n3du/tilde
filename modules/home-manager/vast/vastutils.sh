@@ -168,6 +168,13 @@ cmd_bootstrap() {
   mkdir -p "$STATE_DIR"
   for repo in "$@"; do
     [[ $repo =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || die "bootstrap: '$repo' is not owner/repo"
+    # GitHub resolves names case-insensitively but git's insteadOf is an exact
+    # prefix match, so use the canonical casing (the one clone URLs show).
+    local canonical
+    canonical=$(gh repo view "$repo" --json nameWithOwner --jq .nameWithOwner) ||
+      die "bootstrap: cannot access $repo with gh"
+    [[ $canonical == "$repo" ]] || echo "bootstrap: using canonical name $canonical (not $repo)"
+    repo=$canonical
     local k="gh_${repo//\//__}" pub
     echo "bootstrap: $title <- $repo"
 

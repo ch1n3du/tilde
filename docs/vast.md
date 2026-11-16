@@ -86,6 +86,10 @@ sync aborts before touching anything, so it can never mistake an API error for
   `sync`.
 - A write deploy key can push to any branch. Protect `main` with a branch
   ruleset if that matters for the repo.
+- Rewrites match the URL exactly, including case. GitHub ignores case in
+  repo names but git's `insteadOf` doesn't, so `bootstrap` looks up the
+  canonical `owner/repo` with `gh repo view` and uses that. Clone with the
+  URL GitHub shows.
 - `insteadOf` is prefix-based, so only the `.git`-suffixed HTTPS URL is
   rewritten. Clone with `.git` or with the `git@github.com:` form.
   (Rewriting `https://github.com/o/r` would also capture `o/r-other`.)
