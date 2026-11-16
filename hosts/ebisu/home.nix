@@ -40,6 +40,7 @@
     firefox
     openvpn
     telegram-desktop
+    t3code
 
     # Dev tools
     gpustat
