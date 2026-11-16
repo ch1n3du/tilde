@@ -32,8 +32,14 @@ generated file sets nothing else, so they don't conflict.
 
 Generated aliases:
 
-- `vast-<ID>` for every running instance (ID as shown by `vastai show instances`)
-- `vast` for the most recently started one
+- `vast-<ID>` for every running instance (ID as shown by `vastai show instances`).
+  This uses the instance's **direct** public IP and mapped SSH port when vast
+  exposes one, which is one hop shorter and doesn't depend on vast's proxy.
+- `vast-<ID>-proxy` for the same instance through vast's `sshN.vast.ai` proxy.
+  Use it when the direct port is unreachable.
+- `vast` for the most recently started one (direct when available)
+- each instance's bare public IP, with the full set of key options, so an
+  `ssh -p PORT root@IP` command pasted from the vast console also works
 
 These work for anything that reads ssh config: `scp`, `rsync`, VS Code/Zed
 remote, `git`.
@@ -47,8 +53,10 @@ SSH keys). That key is **not** in my agent, so a bare
 `-i ~/.ssh/for_vastai -o IdentitiesOnly=yes`. Matching `*.vast.ai` means
 copy-pasted `ssh1.vast.ai` commands also pick up the right key.
 
-Note that direct-IP connections (`root@<public ip>`) match no pattern; use the
-`vast-<ID>` alias instead.
+A bare public IP matches none of those patterns, so `vastutils sync` writes a
+self-contained block for each running instance's IP. Pasted direct commands
+work after a sync. Before a sync they fall back to your agent keys, and the
+server asks for a password.
 
 ## GitHub access: per-instance deploy keys
 
@@ -113,6 +121,12 @@ sync aborts before touching anything, so it can never mistake an API error for
   changed nothing.
 - **Alias missing or stale**: run `vastutils sync`. Instances that are still
   loading have no `ssh_host` yet and are skipped, so re-run once it's up.
+- **`kex_exchange_identification: Connection closed by remote host`** on
+  `vast-<ID>-proxy`: vast's proxy isn't routing to the instance (seen on a
+  fresh instance whose direct port worked fine). Use `vast-<ID>`, which goes
+  direct.
+- **`root@IP's password:` prompt**: the IP isn't in `vast.conf` yet. Run
+  `vastutils sync`.
 - **Host key changed warning**: vast reuses proxy ports. Remove the line from
   `~/.ssh/known_hosts.vast` (only vast hosts live there).
 - **`bind [127.0.0.1]:8080: Address already in use`**: another session already

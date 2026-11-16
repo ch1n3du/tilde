@@ -24,7 +24,10 @@ let
       gnugrep
       gnused
     ];
-    text = builtins.readFile ./vastutils.sh;
+    text = ''
+      : "''${VASTUTILS_IDENTITY_FILE:=${cfg.identityFile}}"
+    ''
+    + builtins.readFile ./vastutils.sh;
   };
 in
 {
